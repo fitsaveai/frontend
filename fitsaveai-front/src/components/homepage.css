@@ -36,7 +36,6 @@
 .btn {
     padding: 0.5rem 1rem;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
     font-size: 1rem;
 }
@@ -44,12 +43,51 @@
 .btn-primary {
     background-color: #ff0000;
     color: white;
+    border-radius: 5px;
+    transition: .25s;
 }
 
 .btn-secondary {
+    text-decoration: none;
     background-color: #000;
     color: white;
     margin-right: 1rem;
+    border-radius: 5px;
+    transition: .25s;
+}
+
+.btn-primary1 {
+    background-color: #ff0000;
+    color: white;
+    border-radius: 0px 10px 10px 0px;
+    transition: .25s;
+}
+
+.btn-secondary1 {
+    background-color: #000;
+    color: white;
+    border-radius: 10px 0px 0px 10px;
+    transition: .25s;
+}
+
+.btn-primary1:hover {
+    background-color: #bd1f1f;
+    color: white;
+}
+
+.btn-secondary1:hover {
+    background-color: #343232;
+    color: rgb(181, 175, 175);
+}
+
+.btn-primary:hover {
+    background-color: #ce0c0c;
+    color: rgb(205, 156, 156);
+}
+
+.btn-secondary:hover {
+    background-color: #322c2c;
+    color: rgb(210, 172, 172);
 }
 
 .hero {
@@ -75,6 +113,6 @@
 
 .cta-buttons {
     display: flex;
-    gap: 1rem;
+    /* gap: 1rem; */
 }
 
