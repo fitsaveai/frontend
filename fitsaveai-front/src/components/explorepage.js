@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './explorepage.css';
 
 const ExplorePage = () => {
@@ -12,17 +11,6 @@ const ExplorePage = () => {
 
     return (
         <div className="explore-page">
-            <nav className="navbar">
-                <div className="nav-left">
-                    <Link to="/" className="nav-logo">FitSaverAI</Link>
-                    <Link to="/" className="nav-link">Home</Link>
-                    <Link to="/explore" className="nav-link">Explore</Link>
-                </div>
-                <div className="nav-right">
-                    <Link to="/dashboard" className="btn btn-secondary">Sign In</Link>
-                    <button className="btn btn-primary">Register</button>
-                </div>
-            </nav>
             <main className="explore-content">
                 <h1>Explore Workout Plans</h1>
                 <div className="workout-grid">
