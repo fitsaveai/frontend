@@ -6,29 +6,45 @@ import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp,faArrowDownZA, faArrowUpAZ, faArrowsUpDown, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 
-const userWorkouts = [
-    { id: 1, title: 'Monday Strength', lastPerformed: '2023-07-01' },
-    { id: 2, title: 'Wednesday Cardio', lastPerformed: '2023-06-28' },
-    { id: 3, title: 'Friday Full Body', lastPerformed: '2023-06-30' },
-];
+// const userWorkouts = [
+//     { id: 1, title: 'Monday Strength', lastPerformed: '2023-07-01' },
+//     { id: 2, title: 'Wednesday Cardio', lastPerformed: '2023-06-28' },
+//     { id: 3, title: 'Friday Full Body', lastPerformed: '2023-06-30' },
+// ];
 
 const Dashboard = () => {
 
-    const [sort, setSort] = useState({keyToSort: 'Date', direction:"asc"})
+    const [sort, setSort] = useState({keyToSort: 'Date', direction:"desc"})
 
     const headers = [
-        { id: 1, title: 'Name', label: 'name' },
-        { id: 2, title: 'Date', label: 'date' },
+        { id: 1, Key: 'Name', label: 'Name' },
+        { id: 2, Key: 'Date', label: 'Date' },
     ];
 
     const data = [
-        { id: 1, title: 'Monday Strength', lastPerformed: '2023-07-01' },
-        { id: 2, title: 'Wednesday Cardio', lastPerformed: '2023-06-28' },
-        { id: 3, title: 'Friday Full Body', lastPerformed: '2023-06-30' },
+        { id: 1, Name: 'Monday Strength', Date: '2023-07-01' },
+        { id: 2, Name: 'Wednesday Cardio', Date: '2023-06-28' },
+        { id: 3, Name: 'Friday Full Body', Date: '2023-06-30' },
     ];
 
     function handleHeaderClick(header){
+        setSort({
+            keyToSort: header.Key,
+            direction:
+                header.Key === sort.keyToSort 
+                    ? sort.direction == 'asc' 
+                        ? 'desc' 
+                        : 'asc' 
+                    : 'desc',
+        });
         console.log(header)
+    }
+
+    function getSortedArray(arrayToSort){
+        if (sort.direction === 'asc'){
+            return arrayToSort.sort((a,b) => (a[sort.keyToSort] > b[sort.keyToSort] ? 1:-1));
+        }
+        return arrayToSort.sort((a,b) => (a[sort.keyToSort] > b[sort.keyToSort] ? -1:1));
     }
 
     return (
@@ -60,8 +76,23 @@ const Dashboard = () => {
                     */}
                     <ul className="workout-list">
                         <li className="workout-item">
-                        <a className="icons"><FontAwesomeIcon icon={faArrowUpAZ} onClick={()=>handleHeaderClick({ id: 1, title: 'Name', label: 'name' })} /> </a>
-                        <a className='icons'><FontAwesomeIcon icon={faArrowsUpDown}  onClick={()=>handleHeaderClick({ id: 2, title: 'Date', label: 'date' })} /></a>
+                            {headers.map((header, index) => (
+                                <a className="icons" onClick={() => handleHeaderClick(header)} >
+                                    {header.label}
+                                    {
+                                        header.label === sort.keyToSort && (
+                                            sort.direction === "asc" ?(
+                                                <FontAwesomeIcon icon={faArrowUp} />
+                                            ):(
+                                                <FontAwesomeIcon icon={faArrowDown}/>
+                                            )
+                                        )
+                                    }
+                                    
+                                </a>
+                            ))}
+                        {/* <a className="icons"><FontAwesomeIcon icon={faArrowUpAZ} onClick={()=>handleHeaderClick({ id: 1, title: 'Name', label: 'name' })} /> </a>
+                        <a className='icons'><FontAwesomeIcon icon={faArrowsUpDown}  onClick={()=>handleHeaderClick({ id: 2, title: 'Date', label: 'date' })} /></a> */}
                         <i></i>
                         </li>
                     </ul>
@@ -72,12 +103,10 @@ const Dashboard = () => {
                                 return
                             })} */}
 
-                            {userWorkouts && userWorkouts
-                            .sort((a,b) => a.id > b.id ? 1:-1)
-                            .map(workout => (   
+                            {getSortedArray(data).map(workout => (   
                                 <li key={workout.id} className="workout-item">
-                                    <span>{workout.title}</span>
-                                    <span>Last performed: {workout.lastPerformed}</span>
+                                    <span>{workout.Name}</span>
+                                    <span>Last performed: {workout.Date}</span>
                                     <button className="btn btn-primary">Start Workout</button>
                                 </li>
                             ))}
