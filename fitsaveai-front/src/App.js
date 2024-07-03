@@ -9,21 +9,31 @@ import LoginPage from './components/loginpage';
 import RegisterPage from './components/registerpage';
 
 function App() {
+  const token = sessionStorage.getItem('token')
   return (
     <AuthProvider>
       <Router>
         <div className="App">
           <Navigation />
           <Routes>
-            <Route path="/" element={<HomePage />} />
+            <Route path="/" element={<HomePage/>} />
             <Route path="/explore" element={<ExplorePage />} />
             <Route path="/dashboard" element={
               <ProtectedRoute>
                 <Dashboard />
-              </ProtectedRoute>
+              </ProtectedRoute> 
             } />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/register" element={<RegisterPage />} />
+            {token === null ? (
+              <>
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/register" element={<RegisterPage />} />
+              </>
+            ) : (
+              <>
+                <Route path="/register" element={<p>hi</p>} />
+              </>
+            )}
+
           </Routes>
         </div>
       </Router>

@@ -12,7 +12,9 @@ export const AuthProvider = ({ children }) => {
         const token = localStorage.getItem('token');
         if (token) {
             try {
+                console.log(token)
                 const decodedToken = jwtDecode(token);
+                console.log(decodedToken)
                 if (decodedToken.exp * 1000 < Date.now()) {
                     localStorage.removeItem('token');
                     setUser(null);
@@ -31,7 +33,7 @@ export const AuthProvider = ({ children }) => {
     const login = async (email, password) => {
         try {
             const res = await axios.post('http://localhost:5000/api/auth/login', { email, password });
-            localStorage.setItem('token', res.data.token);
+            sessionStorage.setItem('token', res.data.token);
             setUser(jwtDecode(res.data.token));
             return true;
         } catch (error) {
@@ -43,7 +45,7 @@ export const AuthProvider = ({ children }) => {
     const register = async (name, email, password) => {
         try {
             const res = await axios.post('http://localhost:5000/api/auth/register', { name, email, password });
-            localStorage.setItem('token', res.data.token);
+            sessionStorage.setItem('token', res.data.token);
             setUser(jwtDecode(res.data.token));
             return true;
         } catch (error) {
@@ -58,7 +60,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     return (
-        <AuthContext.Provider value={{ user, login, register, logout, loading }}>
+        <AuthContext.Provider value={{ user, login, register, /*logout,*/ loading }}>
             {children}
         </AuthContext.Provider>
     );

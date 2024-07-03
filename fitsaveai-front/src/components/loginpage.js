@@ -14,7 +14,7 @@ const LoginPage = () => {
                 withCredentials: true,
                 headers: { 'Content-Type': 'application/json' }
             });
-            console.log('Raw response:', response);
+            console.log('Raw response:', response.data);
             setMessage('Login successful: ' + JSON.stringify(response.data));
         } catch (error) {
             console.error('Error object:', error);

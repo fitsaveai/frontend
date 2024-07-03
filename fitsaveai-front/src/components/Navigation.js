@@ -1,15 +1,27 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../context/AuthContext';
+import { AuthContext, AuthProvider } from '../context/AuthContext';
+import { logout } from '../context/AuthContext';
 
 const Navigation = () => {
-    const { user, logout } = useContext(AuthContext);
+    // const token = sessionStorage.getItem('token')
+    // console.log(token)
+    const {user} = useContext(AuthContext); // Call useContext here
     const navigate = useNavigate();
+    console.log(user)
+    // const AuthProvider = useContext(AuthProvider)
+    const logout = useContext(AuthProvider)
     
-    const handleLogout = () => {
+    // const handleLogout = () => {
+    //     logout();
+    //     navigate('/');
+    // };
+
+    const handleLogout= () => {
         logout();
         navigate('/');
-    };
+    }
+    
 
     return (
         <nav className="navbar">
@@ -20,6 +32,7 @@ const Navigation = () => {
             </div>
             <div className="nav-right">
                 {user ? (
+                    
                     <>
                         <Link to="/dashboard" className="nav-link">Dashboard</Link>
                         <button onClick={handleLogout} className="btn btn-secondary">Logout</button>

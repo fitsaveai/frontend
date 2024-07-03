@@ -49,7 +49,7 @@ const Dashboard = () => {
 
     return (
         <div className="dashboard">
-            <nav className="navbar">
+            {/* <nav className="navbar">
                 <div className="nav-left">
                     <Link to="/" className="nav-logo">FitSaverAI</Link>
                     <Link to="/" className="nav-link">Home</Link>
@@ -58,7 +58,7 @@ const Dashboard = () => {
                 <div className="nav-right">
                     <button className="btn btn-secondary">Log Out</button>
                 </div>
-            </nav>
+            </nav> */}
             <main className="dashboard-content">
                 <h1>Welcome, User!</h1>
                 <section className="quick-actions">
