@@ -2,14 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom'
 import { Link } from 'react-router-dom';
 import './dashboard.css';
+import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowUp,faArrowDownZA, faArrowUpAZ, faArrowsUpDown } from '@fortawesome/free-solid-svg-icons';
+import { faArrowUp,faArrowDownZA, faArrowUpAZ, faArrowsUpDown, faArrowDown } from '@fortawesome/free-solid-svg-icons';
+
+const userWorkouts = [
+    { id: 1, title: 'Monday Strength', lastPerformed: '2023-07-01' },
+    { id: 2, title: 'Wednesday Cardio', lastPerformed: '2023-06-28' },
+    { id: 3, title: 'Friday Full Body', lastPerformed: '2023-06-30' },
+];
+
 const Dashboard = () => {
-    const userWorkouts = [
+
+    const[toDo, setToDo] = useState([
         { id: 1, title: 'Monday Strength', lastPerformed: '2023-07-01' },
         { id: 2, title: 'Wednesday Cardio', lastPerformed: '2023-06-28' },
         { id: 3, title: 'Friday Full Body', lastPerformed: '2023-06-30' },
-    ];
+        { id: 4, title: 's Full Body', lastPerformed: '2023-06-30' },
+        { id: 5, title: 'a Full Body', lastPerformed: '2023-06-30' },
+    ])
 
     return (
         <div className="dashboard">
@@ -39,13 +50,28 @@ const Dashboard = () => {
                     <FontAwesomeIcon icon={faArrowDown} />
                     */}
                     <ul className="workout-list">
-                        {userWorkouts.map((workout) => (
-                            <li key={workout.id} className="workout-item">
-                                <span>{workout.title}</span>
-                                <span>Last performed: {workout.lastPerformed}</span>
-                                <button className="btn btn-primary">Start Workout</button>
-                            </li>
-                        ))}
+                        <li className="workout-item">
+                        <a className="icons"><FontAwesomeIcon icon={faArrowUpAZ} /> </a>
+                        <a className='icons'><FontAwesomeIcon icon={faArrowsUpDown} /></a>
+                        <i></i>
+                        </li>
+                    </ul>
+                    <ul className="workout-list">
+                            {/* {toDo && toDo
+                            .sort((a,b) => a.id > b.id ? 1:-1)
+                            .map(task =>{
+                                return
+                            })} */}
+                            {userWorkouts && userWorkouts
+                            .sort((a,b) => a.id > b.id ? 1:-1)
+                            .map(workout => (   
+                                <li key={workout.id} className="workout-item">
+                                    <span>{workout.title}</span>
+                                    <span>Last performed: {workout.lastPerformed}</span>
+                                    <button className="btn btn-primary">Start Workout</button>
+                                </li>
+                            ))}
+                    
                     </ul>
                 </section>
             </main>

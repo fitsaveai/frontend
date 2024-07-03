@@ -47,3 +47,8 @@ i{
 .workout-item span:first-child {
     font-weight: bold;
 }
+
+a.icons{
+    cursor: pointer;
+    color: white;
+}
