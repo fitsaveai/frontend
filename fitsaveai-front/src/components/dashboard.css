@@ -20,6 +20,11 @@
     margin-bottom: 2rem;
 }
 
+i{
+    color: wheat;
+    size: 500px;
+}
+
 .user-workouts h2 {
     margin-bottom: 1rem;
 }

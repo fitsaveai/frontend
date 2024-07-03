@@ -1,7 +1,9 @@
 import React from 'react';
+import ReactDOM from 'react-dom'
 import { Link } from 'react-router-dom';
 import './dashboard.css';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowUp,faArrowDownZA, faArrowUpAZ, faArrowsUpDown } from '@fortawesome/free-solid-svg-icons';
 const Dashboard = () => {
     const userWorkouts = [
         { id: 1, title: 'Monday Strength', lastPerformed: '2023-07-01' },
@@ -29,6 +31,13 @@ const Dashboard = () => {
                 </section>
                 <section className="user-workouts">
                     <h2>Your Workouts</h2>
+                    {/* 
+                    <FontAwesomeIcon icon={faArrowUp} />
+                    <FontAwesomeIcon icon={faArrowDownZA} />
+                    <FontAwesomeIcon icon={faArrowUpAZ} /> 
+                    <FontAwesomeIcon icon={faArrowsUpDown} />
+                    <FontAwesomeIcon icon={faArrowDown} />
+                    */}
                     <ul className="workout-list">
                         {userWorkouts.map((workout) => (
                             <li key={workout.id} className="workout-item">
@@ -40,6 +49,7 @@ const Dashboard = () => {
                     </ul>
                 </section>
             </main>
+            <script src="https://kit.fontawesome.com/bc449cadad.js" crossorigin="anonymous"></script>
         </div>
     );
 };
