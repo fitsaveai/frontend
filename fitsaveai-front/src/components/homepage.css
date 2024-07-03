@@ -2,6 +2,7 @@
 
 .home-page {
     color: #bcbcbc;
+    
 }
 
 .navbar {
@@ -75,17 +76,44 @@
 
 .hero {
     
-    height: calc(100vh - 140px);
+    height: calc(150vh - 140px);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: normal;
     align-items: center;
     text-align: center;
     background: linear-gradient(to bottom, #808080, #404040);
     padding: 2rem;
     margin-top:70px; 
 }
+.boxes-container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: flex-start; 
+    gap: 2rem; 
+    max-width: 1000px; 
+}
 
+.box {
+    background-color: #ffffff;
+    color: #333;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-height: 300px; 
+    flex: 1; 
+    max-width: calc(33.33% - 1rem); 
+}
+
+.box h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.box p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
 .hero h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
@@ -101,6 +129,7 @@
 .cta-buttons {
     display: flex;
     gap: 1rem;
+    margin:40px;
 }
 
 .cta-buttons .btn {
