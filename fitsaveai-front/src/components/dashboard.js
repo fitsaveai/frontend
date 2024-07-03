@@ -14,13 +14,22 @@ const userWorkouts = [
 
 const Dashboard = () => {
 
-    const[toDo, setToDo] = useState([
+    const [sort, setSort] = useState({keyToSort: 'Date', direction:"asc"})
+
+    const headers = [
+        { id: 1, title: 'Name', label: 'name' },
+        { id: 2, title: 'Date', label: 'date' },
+    ];
+
+    const data = [
         { id: 1, title: 'Monday Strength', lastPerformed: '2023-07-01' },
         { id: 2, title: 'Wednesday Cardio', lastPerformed: '2023-06-28' },
         { id: 3, title: 'Friday Full Body', lastPerformed: '2023-06-30' },
-        { id: 4, title: 's Full Body', lastPerformed: '2023-06-30' },
-        { id: 5, title: 'a Full Body', lastPerformed: '2023-06-30' },
-    ])
+    ];
+
+    function handleHeaderClick(header){
+        console.log(header)
+    }
 
     return (
         <div className="dashboard">
@@ -51,8 +60,8 @@ const Dashboard = () => {
                     */}
                     <ul className="workout-list">
                         <li className="workout-item">
-                        <a className="icons"><FontAwesomeIcon icon={faArrowUpAZ} /> </a>
-                        <a className='icons'><FontAwesomeIcon icon={faArrowsUpDown} /></a>
+                        <a className="icons"><FontAwesomeIcon icon={faArrowUpAZ} onClick={()=>handleHeaderClick({ id: 1, title: 'Name', label: 'name' })} /> </a>
+                        <a className='icons'><FontAwesomeIcon icon={faArrowsUpDown}  onClick={()=>handleHeaderClick({ id: 2, title: 'Date', label: 'date' })} /></a>
                         <i></i>
                         </li>
                     </ul>
@@ -62,6 +71,7 @@ const Dashboard = () => {
                             .map(task =>{
                                 return
                             })} */}
+
                             {userWorkouts && userWorkouts
                             .sort((a,b) => a.id > b.id ? 1:-1)
                             .map(workout => (   
