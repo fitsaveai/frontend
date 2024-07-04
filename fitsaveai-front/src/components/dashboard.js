@@ -6,25 +6,20 @@ import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp,faArrowDownZA, faArrowUpAZ, faArrowsUpDown, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 
-
 // const userWorkouts = [
 //     { id: 1, title: 'Monday Strength', lastPerformed: '2023-07-01' },
 //     { id: 2, title: 'Wednesday Cardio', lastPerformed: '2023-06-28' },
 //     { id: 3, title: 'Friday Full Body', lastPerformed: '2023-06-30' },
 // ];
 
-
 const Dashboard = () => {
 
-
     const [sort, setSort] = useState({keyToSort: 'Date', direction:"desc"})
-
 
     const headers = [
         { id: 1, Key: 'Name', label: 'Name' },
         { id: 2, Key: 'Date', label: 'Date' },
     ];
-
 
     const data = [
         { id: 1, Name: 'Monday Strength', Date: '2023-07-01' },
@@ -32,20 +27,18 @@ const Dashboard = () => {
         { id: 3, Name: 'Friday Full Body', Date: '2023-06-30' },
     ];
 
-
     function handleHeaderClick(header){
         setSort({
             keyToSort: header.Key,
             direction:
-                header.Key === sort.keyToSort
-                    ? sort.direction == 'asc'
-                        ? 'desc'
-                        : 'asc'
+                header.Key === sort.keyToSort 
+                    ? sort.direction == 'asc' 
+                        ? 'desc' 
+                        : 'asc' 
                     : 'desc',
         });
         console.log(header)
     }
-
 
     function getSortedArray(arrayToSort){
         if (sort.direction === 'asc'){
@@ -53,7 +46,6 @@ const Dashboard = () => {
         }
         return arrayToSort.sort((a,b) => (a[sort.keyToSort] > b[sort.keyToSort] ? -1:1));
     }
-
 
     return (
         <div className="dashboard">
@@ -75,10 +67,10 @@ const Dashboard = () => {
                 </section>
                 <section className="user-workouts">
                     <h2>Your Workouts</h2>
-                    {/*
+                    {/* 
                     <FontAwesomeIcon icon={faArrowUp} />
                     <FontAwesomeIcon icon={faArrowDownZA} />
-                    <FontAwesomeIcon icon={faArrowUpAZ} />
+                    <FontAwesomeIcon icon={faArrowUpAZ} /> 
                     <FontAwesomeIcon icon={faArrowsUpDown} />
                     <FontAwesomeIcon icon={faArrowDown} />
                     */}
@@ -96,7 +88,7 @@ const Dashboard = () => {
                                             )
                                         )
                                     }
-                                   
+                                    
                                 </a>
                             ))}
                         {/* <a className="icons"><FontAwesomeIcon icon={faArrowUpAZ} onClick={()=>handleHeaderClick({ id: 1, title: 'Name', label: 'name' })} /> </a>
@@ -111,15 +103,13 @@ const Dashboard = () => {
                                 return
                             })} */}
 
-
-                            {getSortedArray(data).map(workout => (  
+                            {getSortedArray(data).map(workout => (   
                                 <li key={workout.id} className="workout-item">
                                     <span>{workout.Name}</span>
                                     <span>Last performed: {workout.Date}</span>
                                     <button className="btn btn-primary">Start Workout</button>
                                 </li>
                             ))}
-                   
                     </ul>
                 </section>
             </main>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './homepage.css';
 
 const HomePage = () => {
@@ -21,8 +22,8 @@ const HomePage = () => {
                 <h1>Build Workouts Faster</h1>
                 <p>FitSaverAI is an AI-powered workout builder for building workouts fast.</p>
                 <div className="cta-buttons">
-                    <button className="btn btn-secondary">Sign In</button>
-                    <button className="btn btn-primary">Register</button>
+                    <Link to="/login" className="btn btn-secondary">Sign In</Link>
+                    <Link to="/register" className="btn btn-primary">Register</Link>
                 </div>
                 <div className="boxes-container">
                     <div className="box">
