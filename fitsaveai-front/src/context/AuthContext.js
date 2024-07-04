@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
-import { jwtDecode } from 'jwt-decode'; 
+import { jwtDecode } from 'jwt-decode';
 
 export const AuthContext = createContext();
 
@@ -9,13 +9,10 @@ export const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const token = window.sessionStorage.getItem('token');
+        const token = localStorage.getItem('token');
         if (token) {
             try {
-                console.log(token)
                 const decodedToken = jwtDecode(token);
-                console.log(decodedToken)
-                
                 if (decodedToken.exp * 1000 < Date.now()) {
                     localStorage.removeItem('token');
                     setUser(null);
@@ -24,7 +21,7 @@ export const AuthProvider = ({ children }) => {
                 }
             } catch (error) {
                 console.error('Error decoding token:', error);
-                window.sessionStorage.removeItem('token');
+                localStorage.removeItem('token');
                 setUser(null);
             }
         }
@@ -34,10 +31,9 @@ export const AuthProvider = ({ children }) => {
     const login = async (email, password) => {
         try {
             const res = await axios.post('http://localhost:5000/api/auth/login', { email, password });
-            window.sessionStorage.setItem('token', res.data.token);
-            window.sessionStorage.setItem('User', res.data.user.name);
-            console.log(res.data.user.name)
-            setUser(jwtDecode(res.data.token));
+            localStorage.setItem('token', res.data.token);
+            const decodedUser = jwtDecode(res.data.token);
+            setUser(decodedUser);
             return true;
         } catch (error) {
             console.error('Login error:', error);
@@ -48,8 +44,9 @@ export const AuthProvider = ({ children }) => {
     const register = async (name, email, password) => {
         try {
             const res = await axios.post('http://localhost:5000/api/auth/register', { name, email, password });
-            window.sessionStorage.setItem('token', res.data.token);
-            setUser(jwtDecode(res.data.token));
+            localStorage.setItem('token', res.data.token);
+            const decodedUser = jwtDecode(res.data.token);
+            setUser(decodedUser);
             return true;
         } catch (error) {
             console.error('Registration error:', error);
@@ -58,12 +55,28 @@ export const AuthProvider = ({ children }) => {
     };
 
     const logout = () => {
-        window.sessionStorage.removeItem('token');
+        localStorage.removeItem('token');
         setUser(null);
     };
 
+    const verifyToken = async () => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            try {
+                const res = await axios.get('http://localhost:5000/api/auth/verify', {
+                    headers: { Authorization: `Bearer ${token}` }
+                });
+                setUser(res.data.user);
+            } catch (error) {
+                console.error('Token verification error:', error);
+                localStorage.removeItem('token');
+                setUser(null);
+            }
+        }
+    };
+
     return (
-        <AuthContext.Provider value={{ user, login, register, /*logout,*/ loading }}>
+        <AuthContext.Provider value={{ user, login, register, logout, loading, verifyToken }}>
             {children}
         </AuthContext.Provider>
     );

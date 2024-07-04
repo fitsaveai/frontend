@@ -7,41 +7,23 @@ import ExplorePage from './components/explorepage';
 import Dashboard from './components/dashboard';
 import LoginPage from './components/loginpage';
 import RegisterPage from './components/registerpage';
-import PromptPage from './components/prompt';
-
-//Chat Gpt
-import './App.css';
 
 function App() {
-
-
-  //normal
-  const token = sessionStorage.getItem('token')
   return (
     <AuthProvider>
       <Router>
         <div className="App">
           <Navigation />
           <Routes>
-            <Route path="/" element={<HomePage/>} />
+            <Route path="/" element={<HomePage />} />
             <Route path="/explore" element={<ExplorePage />} />
-            <Route path="/prompt" element={<PromptPage />} />
             <Route path="/dashboard" element={
               <ProtectedRoute>
                 <Dashboard />
-              </ProtectedRoute> 
+              </ProtectedRoute>
             } />
-            {token === null ? (
-              <>
-                <Route path="/login" element={<LoginPage />} />
-                <Route path="/register" element={<RegisterPage />} />
-              </>
-            ) : (
-              <>
-                <Route path="/dashboard" element={<Dashboard />} />
-              </>
-            )}
-
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
           </Routes>
         </div>
       </Router>

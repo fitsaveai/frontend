@@ -15,7 +15,6 @@ const LoginPage = () => {
         try {
             const success = await login(email, password);
             if (success) {
-                
                 navigate('/dashboard');
             } else {
                 setError('Login failed. Please check your credentials.');
