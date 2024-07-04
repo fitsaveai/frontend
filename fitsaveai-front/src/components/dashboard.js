@@ -1,35 +1,79 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import WorkoutCard from './workoutcard';
 import './dashboard.css';
 
 const Dashboard = () => {
-    const userWorkouts = [
-        { id: 1, title: 'Monday Strength', lastPerformed: '2023-07-01' },
-        { id: 2, title: 'Wednesday Cardio', lastPerformed: '2023-06-28' },
-        { id: 3, title: 'Friday Full Body', lastPerformed: '2023-06-30' },
-    ];
+    const [workouts, setWorkouts] = useState([]);
+    const [prompt, setPrompt] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
+
+    useEffect(() => {
+        fetchWorkouts();
+    }, []);
+
+    const fetchWorkouts = async () => {
+        try {
+            const response = await axios.get('http://localhost:5000/api/workouts', {
+                headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+            });
+            setWorkouts(response.data);
+        } catch (error) {
+            console.error('Error fetching workouts:', error);
+        }
+    };
+
+    const generateWorkout = async (e) => {
+        e.preventDefault();
+        setIsLoading(true);
+        try {
+            const response = await axios.post('http://localhost:5000/api/ai/generate',
+                { prompt },
+                { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }
+            );
+            setWorkouts([response.data, ...workouts]);
+            setPrompt('');
+        } catch (error) {
+            console.error('Error generating workout:', error);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    const deleteWorkout = async (id) => {
+        try {
+            await axios.delete(`http://localhost:5000/api/workouts/${id}`, {
+                headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+            });
+            setWorkouts(workouts.filter(workout => workout._id !== id));
+        } catch (error) {
+            console.error('Error deleting workout:', error);
+        }
+    };
 
     return (
         <div className="dashboard">
-            <main className="dashboard-content">
-                <h1>Welcome, User!</h1>
-                <section className="quick-actions">
-                    <button className="btn btn-primary">Create New Workout</button>
-                    <button className="btn btn-secondary">View Progress</button>
-                </section>
-                <section className="user-workouts">
-                    <h2>Your Workouts</h2>
-                    <ul className="workout-list">
-                        {userWorkouts.map((workout) => (
-                            <li key={workout.id} className="workout-item">
-                                <span>{workout.title}</span>
-                                <span>Last performed: {workout.lastPerformed}</span>
-                                <button className="btn btn-primary">Start Workout</button>
-                            </li>
-                        ))}
-                    </ul>
-                </section>
-            </main>
+            <h1>Your Dashboard</h1>
+            <form onSubmit={generateWorkout} className="workout-generator">
+                <textarea
+                    value={prompt}
+                    onChange={(e) => setPrompt(e.target.value)}
+                    placeholder="Describe the workout you want to generate..."
+                    rows={4}
+                />
+                <button type="submit" disabled={isLoading}>
+                    {isLoading ? 'Generating...' : 'Generate Workout'}
+                </button>
+            </form>
+            <div className="workout-list">
+                {workouts.map((workout) => (
+                    <WorkoutCard
+                        key={workout._id}
+                        workout={workout}
+                        onDelete={() => deleteWorkout(workout._id)}
+                    />
+                ))}
+            </div>
         </div>
     );
 };
