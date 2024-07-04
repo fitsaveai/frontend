@@ -1,0 +1,43 @@
+.dashboard {
+    font-family: Arial, sans-serif;
+    color: white;
+    background-color: #1a1a1a;
+    min-height: 100vh;
+}
+
+.dashboard-content {
+    padding: 2rem;
+}
+
+.dashboard-content h1 {
+    margin-bottom: 2rem;
+}
+
+.quick-actions {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.user-workouts h2 {
+    margin-bottom: 1rem;
+}
+
+.workout-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.workout-item {
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.workout-item span:first-child {
+    font-weight: bold;
+}
