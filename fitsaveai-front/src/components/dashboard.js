@@ -32,6 +32,7 @@ const Dashboard = () => {
                 { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }
             );
             setWorkouts([response.data, ...workouts]);
+            console.log(response)
             setPrompt('');
         } catch (error) {
             console.error('Error generating workout:', error);

@@ -32,7 +32,11 @@ export const AuthProvider = ({ children }) => {
         try {
             const res = await axios.post('http://localhost:5000/api/auth/login', { email, password });
             localStorage.setItem('token', res.data.token);
+            localStorage.setItem('email', res.data.user.email);
+            localStorage.setItem('name', res.data.user.name);
             const decodedUser = jwtDecode(res.data.token);
+            // console.log(res.data);
+            console.log(res.data.user.name)
             setUser(decodedUser);
             return true;
         } catch (error) {
@@ -44,8 +48,12 @@ export const AuthProvider = ({ children }) => {
     const register = async (name, email, password) => {
         try {
             const res = await axios.post('http://localhost:5000/api/auth/register', { name, email, password });
+            localStorage.setItem('name', res.data.user.name);
+            localStorage.setItem('email', res.data.user.email);
             localStorage.setItem('token', res.data.token);
             const decodedUser = jwtDecode(res.data.token);
+            // console.log(res.data);
+            console.log(res.data.user.name)
             setUser(decodedUser);
             return true;
         } catch (error) {

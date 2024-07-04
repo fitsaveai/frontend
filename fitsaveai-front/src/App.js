@@ -7,6 +7,7 @@ import ExplorePage from './components/explorepage';
 import Dashboard from './components/dashboard';
 import LoginPage from './components/loginpage';
 import RegisterPage from './components/registerpage';
+import ProfilePage from './components/profile';
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
               <ProtectedRoute>
                 <Dashboard />
               </ProtectedRoute>
+            } />
+          <Route path="/profile" element={
+            <ProtectedRoute><ProfilePage /></ProtectedRoute>
             } />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
