@@ -6,6 +6,7 @@ const HomePage = () => {
         <div className="home-page">
             <nav className="navbar">
                 <div className="nav-left">
+                    <img src={require('../img/logoFitnessSaveAi.png')} alt='logo'className="nav-logo-img"/>
                     <a href="/" className="nav-logo">FitSaverAI</a>
                     <a href="/" className="nav-link">Home</a>
                     <a href="/explore" className="nav-link">Explore</a>
