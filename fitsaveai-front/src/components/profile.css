@@ -43,3 +43,61 @@
 .workout-card .btn {
     margin-top: auto;
 }
+
+.profile-cluster {
+    background: none;
+    width: 96%;
+    border-radius: 10px;
+    padding: 2%;
+    display: flex;
+    /* align-items: center; */
+    text-align: center;
+    justify-content: left;
+}
+
+.profile-img-cluster{
+    margin: 2%;
+    flex-direction: column;
+    background-color: #2a2a2a;
+    padding: 1%;
+    border-radius: 10px;
+    width: 30%;
+    height: 500px;
+    box-shadow: 26px 31px 51px 1px rgba(0,0,0,0.81);
+-webkit-box-shadow: 26px 31px 51px 1px rgba(0,0,0,0.81);
+-moz-box-shadow: 26px 31px 51px 1px rgba(0,0,0,0.81);
+    /* display: flex; */
+}
+
+.pfp-img{
+    font-family: 'Poppins';
+    border-radius: 5px;
+    border: none;
+    margin-top: 10%;
+    width: 96%;
+    padding: 2%;
+    font-size: 30px;
+    background-color: red;
+    transition: 1s;
+    color: white;
+}
+
+.pfp-img:hover{
+    cursor: pointer;
+    margin-top: 9%;
+    background-color: rgb(192, 25, 25);
+    color:wheat;
+}
+.profile-group-cluster{
+    margin: 2%;
+    flex-direction: column;
+    background-color: #2a2a2a;
+    padding: 1%;
+    border-radius: 10px;
+    width: 60%;
+    height: 200px;
+    box-shadow: 26px 31px 51px 1px rgba(0,0,0,0.81);
+-webkit-box-shadow: 26px 31px 51px 1px rgba(0,0,0,0.81);
+-moz-box-shadow: 26px 31px 51px 1px rgba(0,0,0,0.81);
+    /* display: flex; */
+}
