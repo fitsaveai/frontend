@@ -15,6 +15,7 @@ export const AuthProvider = ({ children }) => {
                 console.log(token)
                 const decodedToken = jwtDecode(token);
                 console.log(decodedToken)
+                
                 if (decodedToken.exp * 1000 < Date.now()) {
                     localStorage.removeItem('token');
                     setUser(null);
@@ -34,6 +35,8 @@ export const AuthProvider = ({ children }) => {
         try {
             const res = await axios.post('http://localhost:5000/api/auth/login', { email, password });
             window.sessionStorage.setItem('token', res.data.token);
+            window.sessionStorage.setItem('User', res.data.user.name);
+            console.log(res.data.user.name)
             setUser(jwtDecode(res.data.token));
             return true;
         } catch (error) {

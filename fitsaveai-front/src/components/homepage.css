@@ -24,10 +24,14 @@
 .nav-right{
     margin-left: 55%;
 }
-.nav-left,
-.nav-right {
+.nav-left {
     display: flex;
     align-items: center;
+}
+.nav-right {
+    display: flex;
+    /* align-items: center; */
+    justify-content: right;
 }
 
 .nav-logo {

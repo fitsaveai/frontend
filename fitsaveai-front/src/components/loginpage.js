@@ -1,35 +1,39 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
 
 const LoginPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [message, setMessage] = useState('');
+    const [error, setError] = useState('');
+    const { login } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setMessage('Attempting login...');
+        setError('');
         try {
-            const response = await axios.post('http://localhost:5000/api/auth/login', { email, password }, {
-                withCredentials: true,
-                headers: { 'Content-Type': 'application/json' }
-            });
-            console.log('Raw response:', response.data);
-            setMessage('Login successful: ' + JSON.stringify(response.data));
+            const success = await login(email, password);
+            if (success) {
+                
+                navigate('/dashboard');
+            } else {
+                setError('Login failed. Please check your credentials.');
+            }
         } catch (error) {
-            console.error('Error object:', error);
-            setMessage('Error: ' + (error.response?.data?.message || error.message));
+            setError('An error occurred. Please try again.');
         }
     };
 
     return (
-        <div>
+        <div className="login-page">
+            <h2>Login</h2>
+            {error && <p className="error-message">{error}</p>}
             <form onSubmit={handleSubmit}>
                 <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" required />
                 <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" required />
-                <button type="submit">Login</button>
+                <button type="submit" className="btn btn-primary">Login</button>
             </form>
-            <p>{message}</p>
         </div>
     );
 };

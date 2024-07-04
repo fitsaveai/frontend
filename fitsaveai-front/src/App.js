@@ -27,9 +27,9 @@ function App() {
             <Route path="/explore" element={<ExplorePage />} />
             <Route path="/prompt" element={<PromptPage />} />
             <Route path="/dashboard" element={
-              //<ProtectedRoute>
+              <ProtectedRoute>
                 <Dashboard />
-              //</ProtectedRoute> 
+              </ProtectedRoute> 
             } />
             {token === null ? (
               <>
@@ -38,7 +38,7 @@ function App() {
               </>
             ) : (
               <>
-                <Route path="/register" element={<p>hi</p>} />
+                <Route path="/dashboard" element={<Dashboard />} />
               </>
             )}
 

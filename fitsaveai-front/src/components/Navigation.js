@@ -2,42 +2,53 @@ import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext, AuthProvider } from '../context/AuthContext';
 import { logout } from '../context/AuthContext';
+import './navigation.css';
 
 const Navigation = () => {
     const token = window.sessionStorage.getItem('token')
-    console.log(token)
     const {user} = useContext(AuthContext); // Call useContext here
+    console.log(user)
     const navigate = useNavigate();
-    // console.log(user)
-    // const AuthProvider = useContext(AuthProvider)
-    const logout = useContext(AuthProvider)
-    console.log(logout)
     
-    // const handleLogout = () => {
-    //     logout();
-    //     navigate('/');
-    // };
-
+    const logout = () => {
+        window.sessionStorage.removeItem('token');
+        // setUser(null);
+    };
     const handleLogout= () => {
         logout();
         navigate('/');
     }
     
-
+    const UserName = sessionStorage.getItem('User');
     return (
         <nav className="navbar">
             <div className="nav-left">
             <img src={require('../img/logoFitnessSaveAi.png')} alt='logo'className="nav-logo-img"/>
                     <a href="/" className="nav-logo">FitSaverAI</a>
                     <a href="/" className="nav-link">Home</a>
-                    <a href="/explore" className="nav-link">Explore</a>
+                    {token ? (
+                    <>
+                        <Link to="/dashboard" className="nav-link">Dashboard</Link>
+                    </>
+                ) : (
+                    <>
+                        <a href="/explore" className="nav-link">Explore</a>
+                    </>
+                )}
             </div>
             <div className="nav-right">
                 {token ? (
                     
                     <>
-                        <Link to="/dashboard" className="nav-link">Dashboard</Link>
-                        <button onClick={handleLogout} className="btn btn-secondary">Logout</button>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary">{UserName}</button>
+                        <div class="dropdown-content">
+                            <a href="#">Link 1</a>
+                            <a href="#">Link 2</a>
+                            <a href="#">Link 3</a>
+                        </div>
+                    </div>
+                        {/* <button onClick={handleLogout} className="btn btn-secondary">Logout</button> */}
                     </>
                 ) : (
                     <>
