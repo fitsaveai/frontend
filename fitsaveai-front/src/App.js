@@ -7,8 +7,15 @@ import ExplorePage from './components/explorepage';
 import Dashboard from './components/dashboard';
 import LoginPage from './components/loginpage';
 import RegisterPage from './components/registerpage';
+import PromptPage from './components/prompt';
+
+//Chat Gpt
+import './App.css';
 
 function App() {
+
+
+  //normal
   const token = sessionStorage.getItem('token')
   return (
     <AuthProvider>
@@ -18,10 +25,11 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage/>} />
             <Route path="/explore" element={<ExplorePage />} />
+            <Route path="/prompt" element={<PromptPage />} />
             <Route path="/dashboard" element={
-              <ProtectedRoute>
+              //<ProtectedRoute>
                 <Dashboard />
-              </ProtectedRoute> 
+              //</ProtectedRoute> 
             } />
             {token === null ? (
               <>

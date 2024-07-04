@@ -4,13 +4,14 @@ import { AuthContext, AuthProvider } from '../context/AuthContext';
 import { logout } from '../context/AuthContext';
 
 const Navigation = () => {
-    // const token = sessionStorage.getItem('token')
-    // console.log(token)
+    const token = window.sessionStorage.getItem('token')
+    console.log(token)
     const {user} = useContext(AuthContext); // Call useContext here
     const navigate = useNavigate();
-    console.log(user)
+    // console.log(user)
     // const AuthProvider = useContext(AuthProvider)
     const logout = useContext(AuthProvider)
+    console.log(logout)
     
     // const handleLogout = () => {
     //     logout();
@@ -31,7 +32,7 @@ const Navigation = () => {
                 <Link to="/explore" className="nav-link">Explore</Link>
             </div>
             <div className="nav-right">
-                {user ? (
+                {token ? (
                     
                     <>
                         <Link to="/dashboard" className="nav-link">Dashboard</Link>

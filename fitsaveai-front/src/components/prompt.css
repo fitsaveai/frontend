@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.dashboard {
+    width: 100%;
+    font-family: Poppins, Arial, sans-serif;
+    color: rgb(255, 255, 255);
+    background-color: #1a1a1a;
+    min-height: 100vh;
+}
+
+.dashboard-content {
+    width: 100%;
+    color: rgb(255, 255, 255);
+    background-color: #1a1a1a;
+}
+
+.dashboard-content h1 {
+    margin-bottom: 2rem;
+    color: rgb(255, 255, 255);
+}
+
+.quick-actions {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+i{
+    color: wheat;
+    size: 500px;
+}
+
+.user-workouts h2 {
+    margin-bottom: 1rem;
+}
+
+.workout-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.workout-item {
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.workout-item span:first-child {
+    font-weight: bold;
+}
+
+a.icons{
+    cursor: pointer;
+    color: white;
+}
+
+div.prompts{
+    padding: 5%;
+    margin: 5%;
+    width: 80%;
+    height: 500px;
+    background-color: white !important;
+    border-radius: 20px;
+    justify-self: center;
+}
+
+button.promptbtn{
+    color: rgb(136, 123, 123);
+    size: 50px;
+    scale: 2;
+    position: absolute;
+    left:85%;
+    top:112%;
+    cursor: pointer;
+    background:none;
+    border: none;
+    transition: 0.25s;
+}
+
+button.promptbtn:hover{
+    color: rgb(106, 96, 96);
+    top: 111%;
+}
+textarea.text-area{
+    font-size: 20px;
+    font-family: 'Poppins';
+    margin-top: 5px;
+    resize: none;
+    width: 96%;
+    border-radius: 5px;
+    border: none;
+    height: 100px;
+}
+
+div.log{
+    height: 400px;
+    margin-left: 2%;
+    width: 96%;
+    background-color: #ffffff;
+    color: black;
+    overflow-y: scroll;
+}
+
+div.log::-webkit-scrollbar {
+    width: 8px; /* Set the width of the scrollbar */
+    background-color: #ffffff;
+}
+
+div.log::-webkit-scrollbar-track {
+    background-color: #ffffff; /* Set the track color */
+    border-radius: 100px; /* Round the edges */
+}
+.section::-webkit-scrollbar-thumb {
+    background-color: #000000; /* Set the handle color */
+    border-radius: 100px; /* Round the edges */
+  }

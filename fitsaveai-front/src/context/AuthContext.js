@@ -9,7 +9,7 @@ export const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const token = localStorage.getItem('token');
+        const token = window.sessionStorage.getItem('token');
         if (token) {
             try {
                 console.log(token)
@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }) => {
                 }
             } catch (error) {
                 console.error('Error decoding token:', error);
-                localStorage.removeItem('token');
+                window.sessionStorage.removeItem('token');
                 setUser(null);
             }
         }
@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }) => {
     const login = async (email, password) => {
         try {
             const res = await axios.post('http://localhost:5000/api/auth/login', { email, password });
-            sessionStorage.setItem('token', res.data.token);
+            window.sessionStorage.setItem('token', res.data.token);
             setUser(jwtDecode(res.data.token));
             return true;
         } catch (error) {
@@ -45,7 +45,7 @@ export const AuthProvider = ({ children }) => {
     const register = async (name, email, password) => {
         try {
             const res = await axios.post('http://localhost:5000/api/auth/register', { name, email, password });
-            sessionStorage.setItem('token', res.data.token);
+            window.sessionStorage.setItem('token', res.data.token);
             setUser(jwtDecode(res.data.token));
             return true;
         } catch (error) {
@@ -55,7 +55,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     const logout = () => {
-        localStorage.removeItem('token');
+        window.sessionStorage.removeItem('token');
         setUser(null);
     };
 
