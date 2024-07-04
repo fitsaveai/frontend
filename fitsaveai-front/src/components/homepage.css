@@ -8,12 +8,22 @@
 
 .navbar {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
     background-color: #000;
 }
-
+.nav-logo-img {
+    height: 40px; 
+    width: auto; 
+    margin-right: 1rem; 
+    transition: transform 0.3s ease-in-out;
+}
+.nav-logo-img:hover {
+    transform: scale(1.1); 
+}
+.nav-right{
+    margin-left: 55%;
+}
 .nav-left,
 .nav-right {
     display: flex;
@@ -94,11 +104,11 @@
 }
 
 .hero {
-    height: calc(150vh - 140px);
-
+    
+    height: calc(200vh - 170px);
     display: flex;
     flex-direction: column;
-    justify-content: normal;
+    justify-content: center;
     align-items: center;
     text-align: center;
     background: linear-gradient(to bottom, #808080, #404040);
@@ -113,8 +123,8 @@
 }
 
 .box {
-    background-color: #ffffff;
-    color: #333;
+    background-color: #393939;
+    color: #d3d0d0;
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -146,6 +156,8 @@
     display: flex;
 
     gap: 1rem;
-    margin:40px;
+    margin-top:25px;
+    margin-bottom: 140px;
+
 }
 

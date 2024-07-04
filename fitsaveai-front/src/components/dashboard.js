@@ -110,13 +110,15 @@ const Dashboard = () => {
                                     <button className="btn btn-primary">Start Workout</button>
                                 </li>
                             ))}
-                    
                     </ul>
                 </section>
             </main>
             <script src="https://kit.fontawesome.com/bc449cadad.js" crossorigin="anonymous"></script>
         </div>
+        
     );
 };
 
+
 export default Dashboard;
+
