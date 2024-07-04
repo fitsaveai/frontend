@@ -13,7 +13,7 @@
 
 .profile-content h1 {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1%;
 }
 
 .workout-grid {
@@ -71,7 +71,7 @@
 
 .pfp-img{
     font-family: 'Poppins';
-    border-radius: 5px;
+    border-radius: 10px;
     border: none;
     margin-top: 10%;
     width: 96%;
@@ -100,4 +100,24 @@
 -webkit-box-shadow: 26px 31px 51px 1px rgba(0,0,0,0.81);
 -moz-box-shadow: 26px 31px 51px 1px rgba(0,0,0,0.81);
     /* display: flex; */
+}
+
+.pfp-img1{
+    font-family: 'Poppins';
+    border-radius: 10px;
+    border: none;
+    margin-top: 5%;
+    width: 96%;
+    padding: 2%;
+    font-size: 30px;
+    background-color: red;
+    transition: 1s;
+    color: white;
+}
+
+.pfp-img1:hover{
+    cursor: pointer;
+    margin-top: 4%;
+    background-color: rgb(192, 25, 25);
+    color:wheat;
 }

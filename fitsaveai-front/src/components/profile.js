@@ -15,12 +15,12 @@ const ExplorePage = () => {
                 <div className='profile-cluster'>
                 <div className='profile-img-cluster'>
                         <h1>{name}</h1>
-                        <img src={profile} width='60%'/>
+                        <img src={profile} alt="hi" width='60%'/>
                         <button className='pfp-img'>Change Profile Image</button>
                     </div>
                     <div className='profile-group-cluster'>
-                        <h1>{name}</h1>
-                        <button className='pfp-img'>Change Profile Image</button>
+                        <h1>Workouts active: {name}</h1>
+                        <button className='pfp-img1'>Go To Dashboard</button>
                     </div>
 
                 </div>

@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
+import './navigation.css'
 
 const Navigation = () => {
     const { user, logout } = useContext(AuthContext);
@@ -10,7 +11,7 @@ const Navigation = () => {
         logout();
         navigate('/');
     };
-
+    const name = localStorage.getItem('name');
     return (
         <nav className="navbar">
             <div className="nav-left">
@@ -22,8 +23,14 @@ const Navigation = () => {
             <div className="nav-right">
                 {user ? (
                     <>
-                        <span className="user-profile">{user.name}</span>
-                        <button onClick={handleLogout} className="btn btn-secondary">Logout</button>
+                    <div class="dropdown">
+                        <button class="btn btn-tertiary">{name}</button>
+                        <div class="dropdown-content">
+                            <a href="#">Link 1</a>
+                            <a href="#">Link 2</a>
+                            <a href="#" className='last'>Link 3</a>
+                        </div>
+                    </div>
                     </>
                 ) : (
                     <>
