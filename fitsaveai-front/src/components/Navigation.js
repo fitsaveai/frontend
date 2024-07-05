@@ -26,6 +26,14 @@ const Navigation = () => {
         // setUser(null);
        
     };
+
+    const logoClick = () => {
+        if (token) {
+            navigate('/dashboard');
+        } else {
+            navigate('/');
+        }
+    };
     const handleLogout= () => {
         logout();
         navigate('/');
@@ -40,7 +48,8 @@ const Navigation = () => {
                         onMouseEnter={handleMouseEnter}
                         onMouseLeave={() => setIsHovered(false)}
                     />
-                    <a href="/" className="nav-logo">FitSaverAI</a>
+                    
+                    <a onClick={logoClick} className="nav-logo">FitSaverAI</a>
                     {token ? (
                     <>
                         <Link to="/dashboard" className="nav-link">Dashboard</Link>

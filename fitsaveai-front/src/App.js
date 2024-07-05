@@ -18,7 +18,7 @@ function App() {
           <Navigation />
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/explore" element={<ExplorePage />} />
+            <Route path="/explore" element={<SignedProtectedRoute><ExplorePage /></SignedProtectedRoute>} />
             <Route path="/dashboard" element={
               <ProtectedRoute>
                 <Dashboard />
@@ -28,7 +28,7 @@ function App() {
             <ProtectedRoute><ProfilePage /></ProtectedRoute>
             } />
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/register" element={<SignedProtectedRoute><RegisterPage /></SignedProtectedRoute>} />
             <Route path="/accInfo" element={<AccountPage />} />
           </Routes>
         </div>
