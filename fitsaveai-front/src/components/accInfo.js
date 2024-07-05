@@ -1,5 +1,6 @@
 import React from 'react';
 import './profile.css';
+import { useContext, useState } from 'react';
 
 const ExplorePage = () => {
     const [type, setEmail] = useState('');

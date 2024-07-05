@@ -2,6 +2,8 @@ import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import './navigation.css'
+import logoStatic from '../assets/logoStatic.png'; 
+import logoAnimated from '../assets/logoAnimated.gif'; 
 
 const Navigation = () => {
     const token = localStorage.getItem('token');
