@@ -9,6 +9,7 @@ import LoginPage from './components/loginpage';
 import RegisterPage from './components/registerpage';
 import ProfilePage from './components/profile';
 import AccountPage from './components/accInfo';
+import DetailsPage from './components/details';
 //notes: make appinfo protectd
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
             } />
           <Route path="/profile" element={
             <ProtectedRoute><ProfilePage /></ProtectedRoute>
+            } />
+            <Route path="/details" element={
+            <ProtectedRoute><DetailsPage /></ProtectedRoute>
             } />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<SignedProtectedRoute><RegisterPage /></SignedProtectedRoute>} />

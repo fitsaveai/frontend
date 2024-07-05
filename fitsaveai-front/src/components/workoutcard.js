@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
 import './workoutcard.css';
 
 const WorkoutCard = ({ workout, onDelete }) => {
@@ -9,6 +10,10 @@ const WorkoutCard = ({ workout, onDelete }) => {
         setIsExpanded(!isExpanded);
     };
 
+    const details = () => {
+        localStorage.setItem('NeededDetails', exercise.name);
+    };
+    {console.log(workout.exercises)}
     const downloadPDF = async () => {
         try {
             const response = await axios.get(`http://localhost:5000/api/workouts/${workout._id}/pdf`, {
@@ -50,7 +55,8 @@ const WorkoutCard = ({ workout, onDelete }) => {
                             <p>Reps: {exercise.reps}</p>
                             {exercise.time && <p>Duration: {exercise.time}</p>}
                             {exercise.notes && <p>Notes: {exercise.notes}</p>}
-                            <button>Details</button> {}
+                            {exercise.duration && <p>Notes: {exercise.duration}</p>}
+                            <Link to="/details" onClick={details}><button>Details</button></Link> {}
                         </div>
                     ))}
                 </div>
