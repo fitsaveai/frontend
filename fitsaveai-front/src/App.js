@@ -8,6 +8,7 @@ import Dashboard from './components/dashboard';
 import LoginPage from './components/loginpage';
 import RegisterPage from './components/registerpage';
 import ProfilePage from './components/profile';
+import AccountPage from './components/accInfo';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             } />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
+            <Route path="/accInfo" element={<AccountPage />} />
           </Routes>
         </div>
       </Router>

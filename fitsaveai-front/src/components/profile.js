@@ -1,6 +1,7 @@
 import React from 'react';
 import './profile.css';
 import profile from '../profileImg/profile.png'
+import { Link, useNavigate } from 'react-router-dom';
 
 const ExplorePage = () => {
     const tokenCopy = document.getElementById('token');
@@ -13,14 +14,17 @@ const ExplorePage = () => {
             <main className="profile-content">
                 <h1>Explore Workout Plans</h1>
                 <div className='profile-cluster'>
-                <div className='profile-img-cluster'>
+                    <div className='profile-img-cluster'>
                         <h1>{name}</h1>
                         <img src={profile} alt="hi" width='60%'/>
-                        <button className='pfp-img'>Change Profile Image</button>
+                        <Link to="/accInfo"><button className='pfp-img'>Edit Profile</button></Link>
                     </div>
                     <div className='profile-group-cluster'>
-                        <h1>Workouts active: {name}</h1>
-                        <button className='pfp-img1'>Go To Dashboard</button>
+                        <h1>Workouts active: number</h1>
+                        <div className="workout-list">
+                            
+                        </div>
+                        <Link to="/dashboard"><button className='pfp-img1'>Go To Dashboard</button></Link> 
                     </div>
 
                 </div>
