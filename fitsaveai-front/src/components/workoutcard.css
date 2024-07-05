@@ -1,10 +1,12 @@
 .workout-card {
+    /* margin-right: 2rem; */
     border: 1px solid #ddd;
     padding: 15px;
     border-radius: 5px;
     position: relative;
     margin-bottom: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 90%;
 }
 
 .workout-card h2 {
