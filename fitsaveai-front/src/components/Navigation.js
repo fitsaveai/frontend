@@ -59,9 +59,9 @@ const Navigation = () => {
                     <div class="dropdown">
                         <button class="btn btn-tertiary">{name}</button>
                         <div class="dropdown-content">
-                            <a href="#">Link 1</a>
-                            <a href="#">Link 2</a>
-                            <a href="#" className='last'>Link 3</a>
+                        <Link to='/profile'>Profile</Link>
+                            <Link to='/accInfo'>Account Info</Link>
+                            <a href="#" className='last' onClick={handleLogout}>Log Out</a>
                         </div>
                     </div>
                     </>

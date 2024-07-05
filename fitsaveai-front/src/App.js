@@ -9,7 +9,7 @@ import LoginPage from './components/loginpage';
 import RegisterPage from './components/registerpage';
 import ProfilePage from './components/profile';
 import AccountPage from './components/accInfo';
-
+//notes: make appinfo protectd
 function App() {
   return (
     <AuthProvider>

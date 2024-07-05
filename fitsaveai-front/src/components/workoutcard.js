@@ -26,8 +26,8 @@ const WorkoutCard = ({ workout, onDelete }) => {
                         <div key={index} className="exercise">
                             <h3>{exercise.name}</h3>
                             <p>Sets: {exercise.sets}</p>
-                            <p>Reps: {exercise.reps}</p>
-                            {exercise.duration && <p>Duration: {exercise.duration}</p>}
+                            <p>Reps: {exercise.reps} on {exercise.interval}</p>
+                            {exercise.time && <p>Duration: {exercise.time}</p>}
                             {exercise.notes && <p>Notes: {exercise.notes}</p>}
                         </div>
                     ))}
