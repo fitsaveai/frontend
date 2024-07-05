@@ -1,7 +1,13 @@
 import React from 'react';
 import './explorepage.css';
-
+import { useNavigate } from 'react-router-dom';
 const ExplorePage = () => {
+    const token = localStorage.getItem('token');
+    const navigate = useNavigate();
+    console.log(token)
+    {token && (
+        navigate('/dashboard')
+    )}
     const workoutPlans = [
         { id: 1, title: 'Beginner Strength Training', duration: '4 weeks' },
         { id: 2, title: 'HIIT Cardio Blast', duration: '2 weeks' },

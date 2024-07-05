@@ -84,3 +84,16 @@
 .exercise-list li {
     margin-bottom: 5px;
 }
+
+.workout-card1 {
+    width: 100%;
+    display: flex;
+}
+
+.workout-card1 h2{
+    width: 40%;
+}
+
+.workout-card1 p{
+    width: 60%;
+}

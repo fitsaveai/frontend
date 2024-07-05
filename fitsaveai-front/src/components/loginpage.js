@@ -1,13 +1,18 @@
 import React, { useState, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
+import './loginpage.css';
 
 const LoginPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const { login } = useContext(AuthContext);
+    const token = localStorage.getItem('token');
     const navigate = useNavigate();
+    {token && (
+        navigate('/dashboard')
+    )}
 
     const handleSubmit = async (e) => {
         e.preventDefault();

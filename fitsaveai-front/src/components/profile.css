@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.profile-page {
+    font-family:Poppins, Arial, sans-serif;
+    color: white;
+    background-color: #1a1a1a;
+    min-height: 100vh;
+}
+
+.profile-content {
+    padding: 2rem;
+}
+
+.profile-content h1 {
+    text-align: center;
+    margin-bottom: 1%;
+}
+
+.workout-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.workout-card {
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.workout-card h2 {
+    margin-bottom: 0.5rem;
+}
+
+.workout-card p {
+    margin-bottom: 1rem;
+}
+
+.workout-card .btn {
+    margin-top: auto;
+}
+
+.profile-cluster {
+    background: none;
+    width: 96%;
+    border-radius: 10px;
+    padding: 2%;
+    display: flex;
+    /* align-items: center; */
+    text-align: center;
+    justify-content: left;
+}
+
+.profile-img-cluster{
+    margin: 2%;
+    flex-direction: column;
+    background-color: #2a2a2a;
+    padding: 1%;
+    border-radius: 10px;
+    width: 30%;
+    height: 100%;
+    box-shadow: 26px 31px 51px 1px rgba(0,0,0,0.81);
+-webkit-box-shadow: 26px 31px 51px 1px rgba(0,0,0,0.81);
+-moz-box-shadow: 26px 31px 51px 1px rgba(0,0,0,0.81);
+    /* display: flex; */
+}
+
+.pfp-img{
+    font-family: 'Poppins';
+    border-radius: 10px;
+    border: none;
+    margin-top: 10%;
+    width: 96%;
+    padding: 2%;
+    font-size: 30px;
+    background-color: red;
+    transition: 1s;
+    color: white;
+}
+
+.pfp-img:hover{
+    cursor: pointer;
+    margin-top: 9%;
+    background-color: rgb(192, 25, 25);
+    color:wheat;
+}
+.profile-group-cluster{
+    text-align: left;
+    margin: 2%;
+    flex-direction: column;
+    background-color: #2a2a2a;
+    padding: 1%;
+    border-radius: 10px;
+    width: 60%;
+    height: 100%;
+    box-shadow: 26px 31px 51px 1px rgba(0,0,0,0.81);
+-webkit-box-shadow: 26px 31px 51px 1px rgba(0,0,0,0.81);
+-moz-box-shadow: 26px 31px 51px 1px rgba(0,0,0,0.81);
+    /* display: flex; */
+}
+
+.pfp-img1{
+    font-family: 'Poppins';
+    border-radius: 10px;
+    border: none;
+    margin-top: 5%;
+    width: 96%;
+    padding: 2%;
+    font-size: 30px;
+    background-color: red;
+    transition: 1s;
+    color: white;
+}
+
+.pfp-img1:hover{
+    cursor: pointer;
+    margin-top: 4%;
+    background-color: rgb(192, 25, 25);
+    color:wheat;
+}
+
+.profile-group-cluster h1{
+    text-align: left;
+}
+
+.workout-list1{
+    height: 190px;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+}

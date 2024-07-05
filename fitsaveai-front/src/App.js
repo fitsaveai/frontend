@@ -7,7 +7,9 @@ import ExplorePage from './components/explorepage';
 import Dashboard from './components/dashboard';
 import LoginPage from './components/loginpage';
 import RegisterPage from './components/registerpage';
-
+import ProfilePage from './components/profile';
+import AccountPage from './components/accInfo';
+//notes: make appinfo protectd
 function App() {
   return (
     <AuthProvider>
@@ -22,8 +24,12 @@ function App() {
                 <Dashboard />
               </ProtectedRoute>
             } />
+          <Route path="/profile" element={
+            <ProtectedRoute><ProfilePage /></ProtectedRoute>
+            } />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
+            <Route path="/accInfo" element={<AccountPage />} />
           </Routes>
         </div>
       </Router>
@@ -35,6 +41,12 @@ const ProtectedRoute = ({ children }) => {
   const { user, loading } = React.useContext(AuthContext);
   if (loading) return <div>Loading...</div>;
   return user ? children : <Navigate to="/login" />;
+};
+
+const SignedProtectedRoute = ({ children }) => {
+  const { user, loading } = React.useContext(AuthContext);
+  if (loading) return <div>Loading...</div>;
+  return !user ? children : <Navigate to="/dashboard" />;
 };
 
 export default App;

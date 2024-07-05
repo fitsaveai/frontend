@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './registerpage.css';
+import { useNavigate } from 'react-router-dom';
 
 const RegisterPage = () => {
     const [name, setName] = useState('');
@@ -7,6 +9,11 @@ const RegisterPage = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [message, setMessage] = useState('');
+    const token = localStorage.getItem('token');
+    const navigate = useNavigate();
+    {token && (
+        navigate('/dashboard')
+    )}
 
     const handleSubmit = async (e) => {
         e.preventDefault();

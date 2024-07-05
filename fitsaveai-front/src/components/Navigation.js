@@ -1,29 +1,69 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
+import './navigation.css'
+import logoStatic from '../assets/logoStatic.png'; 
+import logoAnimated from '../assets/logoAnimated.gif'; 
 
 const Navigation = () => {
-    const { user, logout } = useContext(AuthContext);
+    const token = localStorage.getItem('token');
+    const name = localStorage.getItem('name');
+    const email = localStorage.getItem('email');
+    const {user} = useContext(AuthContext); // Call useContext here
+    console.log(name);
     const navigate = useNavigate();
+    const [isHovered, setIsHovered] = useState(false);
 
-    const handleLogout = () => {
+    const handleMouseEnter = () => {
+        setIsHovered(true);
+        setTimeout(() => {
+            setIsHovered(false);
+        }, 2000); // Duration of your animated logo in milliseconds
+    };
+   
+    const logout = () => {
+        localStorage.removeItem('token');
+        // setUser(null);
+       
+    };
+    const handleLogout= () => {
         logout();
         navigate('/');
     };
-
     return (
         <nav className="navbar">
             <div className="nav-left">
-                <Link to="/" className="nav-logo">FitSaverAI</Link>
-                <Link to="/" className="nav-link">Home</Link>
-                <Link to="/explore" className="nav-link">Explore</Link>
-                {user && <Link to="/dashboard" className="nav-link">Dashboard</Link>}
+            <img
+                        src={isHovered ? logoAnimated : logoStatic}
+                        alt="FitSaverAI Logo"
+                        className="nav-logo-img"
+                        onMouseEnter={handleMouseEnter}
+                        onMouseLeave={() => setIsHovered(false)}
+                    />
+                    <a href="/" className="nav-logo">FitSaverAI</a>
+                    {token ? (
+                    <>
+                        <Link to="/dashboard" className="nav-link">Dashboard</Link>
+                    </>
+                ) : (
+                    <>
+                    <a href="/" className="nav-link">Home</a>
+                        <a href="/explore" className="nav-link">Explore</a>
+                    </>
+                )}
             </div>
             <div className="nav-right">
-                {user ? (
+                {token ? (
+                   
                     <>
-                        <span className="user-profile">{user.name}</span>
-                        <button onClick={handleLogout} className="btn btn-secondary">Logout</button>
+                    <div class="dropdown">
+                        <button class="btn btn-tertiary">{name}</button>
+                        <div class="dropdown-content">
+                        <Link to='/profile'>Profile</Link>
+                            <Link to='/accInfo'>Account Info</Link>
+                            <a href="#" className='last' onClick={handleLogout}>Log Out</a>
+                        </div>
+                    </div>
                     </>
                 ) : (
                     <>
@@ -35,5 +75,6 @@ const Navigation = () => {
         </nav>
     );
 };
+
 
 export default Navigation;
