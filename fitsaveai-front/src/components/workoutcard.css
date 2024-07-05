@@ -21,6 +21,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
 }
 
 .workout-card button {
@@ -35,6 +38,7 @@
 
 .workout-card button:hover {
     background-color: #0056b3;
+    opacity: 0.9;
 }
 
 .workout-card .delete-btn {
@@ -43,6 +47,10 @@
 
 .workout-card .delete-btn:hover {
     background-color: #c82333;
+}
+
+.workout-card .download-btn {
+    background-color: #28a745;
 }
 
 .workout-details {

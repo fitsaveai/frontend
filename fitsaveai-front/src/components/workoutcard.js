@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './workoutcard.css';
 
 const WorkoutCard = ({ workout, onDelete }) => {
@@ -8,6 +9,23 @@ const WorkoutCard = ({ workout, onDelete }) => {
         setIsExpanded(!isExpanded);
     };
 
+    const downloadPDF = async () => {
+        try {
+            const response = await axios.get(`http://localhost:5000/api/workouts/${workout._id}/pdf`, {
+                responseType: 'blob',
+                headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+            });
+
+            const blob = new Blob([response.data], { type: 'application/pdf' });
+            const link = document.createElement('a');
+            link.href = window.URL.createObjectURL(blob);
+            link.download = `${workout.title}.pdf`;
+            link.click();
+        } catch (error) {
+            console.error('Error downloading PDF:', error);
+        }
+    };
+
     return (
         <div className="workout-card">
             <h2>{workout.title}</h2>
@@ -15,6 +33,9 @@ const WorkoutCard = ({ workout, onDelete }) => {
             <div className="button-container">
                 <button onClick={toggleExpand}>
                     {isExpanded ? 'Hide Details' : 'View Details'}
+                </button>
+                <button onClick={downloadPDF} className="download-btn">
+                    Download PDF
                 </button>
                 <button onClick={() => onDelete(workout._id)} className="delete-btn">
                     Delete Workout
