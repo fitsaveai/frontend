@@ -1,5 +1,5 @@
 import React from 'react';
-import './profile.css';
+import './accInfo.css';
 import { useContext, useState } from 'react';
 
 const ExplorePage = () => {
@@ -13,7 +13,7 @@ const ExplorePage = () => {
     return (
         <div className="profile-page">
             <main className="profile-content">
-                <h1>Explore Workout Plans</h1>
+                <h1>Account Info</h1>
                 <div className="workout-grid">
                     <div key='1' className="workout-card">
                             <h2>Name:{name}</h2>
@@ -25,7 +25,9 @@ const ExplorePage = () => {
                             <input type='text' id='EmailChange'/>
                             <button className="btn btn-primary" type="submit" onClick={console.log("Hi")}>Change Email</button>
                     </div>
-                    <div key='3' className="workout-card">
+                </div>
+                <div className="workout-grid">
+                <div key='3' className="workout-card1">
                             <h2>Token</h2> 
                             <input type='text' value={token} id='token' maxLength='4000'/>
                             <button className="btn btn-primary" onClick={() => {navigator.clipboard.writeText(tokenCopy.value)}}>Copy Token</button>

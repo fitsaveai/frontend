@@ -1,8 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './homepage.css';
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 
 const HomePage = () => {
+    const token = localStorage.getItem('token');
+    const navigate = useNavigate();
+    {token && (
+        navigate('/dashboard')
+    )}
     return (
         <div className="home-page">
             <main className="hero">

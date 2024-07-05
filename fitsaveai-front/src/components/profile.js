@@ -72,7 +72,7 @@ const ExplorePage = () => {
                     <div className='profile-group-cluster'>
                         <h1>Workouts active: number</h1>
                         <h3>Top 5 of your workouts:</h3>
-                        <div className="workout-list">
+                        <div className="workout-list1">
                             {workouts.map((workout) => (
                         <WorkoutList
                             key={workout._id}

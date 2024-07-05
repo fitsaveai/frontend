@@ -17,8 +17,8 @@ function App() {
         <div className="App">
           <Navigation />
           <Routes>
-            <Route path="/" element={<SignedProtectedRoute><HomePage /></SignedProtectedRoute>} />
-            <Route path="/explore" element={<SignedProtectedRoute><ExplorePage /></SignedProtectedRoute>} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/explore" element={<ExplorePage />} />
             <Route path="/dashboard" element={
               <ProtectedRoute>
                 <Dashboard />
