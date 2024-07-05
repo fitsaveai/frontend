@@ -17,8 +17,8 @@ function App() {
         <div className="App">
           <Navigation />
           <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/explore" element={<ExplorePage />} />
+            <Route path="/" element={<SignedProtectedRoute><HomePage /></SignedProtectedRoute>} />
+            <Route path="/explore" element={<SignedProtectedRoute><ExplorePage /></SignedProtectedRoute>} />
             <Route path="/dashboard" element={
               <ProtectedRoute>
                 <Dashboard />
@@ -41,6 +41,12 @@ const ProtectedRoute = ({ children }) => {
   const { user, loading } = React.useContext(AuthContext);
   if (loading) return <div>Loading...</div>;
   return user ? children : <Navigate to="/login" />;
+};
+
+const SignedProtectedRoute = ({ children }) => {
+  const { user, loading } = React.useContext(AuthContext);
+  if (loading) return <div>Loading...</div>;
+  return !user ? children : <Navigate to="/dashboard" />;
 };
 
 export default App;

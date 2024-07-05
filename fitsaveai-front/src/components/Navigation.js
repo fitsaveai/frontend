@@ -41,13 +41,13 @@ const Navigation = () => {
                         onMouseLeave={() => setIsHovered(false)}
                     />
                     <a href="/" className="nav-logo">FitSaverAI</a>
-                    <a href="/" className="nav-link">Home</a>
                     {token ? (
                     <>
                         <Link to="/dashboard" className="nav-link">Dashboard</Link>
                     </>
                 ) : (
                     <>
+                    <a href="/" className="nav-link">Home</a>
                         <a href="/explore" className="nav-link">Explore</a>
                     </>
                 )}

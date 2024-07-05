@@ -58,7 +58,8 @@
     border-radius: 4px;
 }
 
-.exercise h3 {
+.exercise h2 {
+    width: 200px;
     margin: 0 0 10px 0;
     color: #495057;
 }
@@ -75,4 +76,8 @@
 
 .exercise-list li {
     margin-bottom: 5px;
+}
+
+.workout-card1 {
+    display: flex;
 }

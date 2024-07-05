@@ -62,7 +62,7 @@
     padding: 1%;
     border-radius: 10px;
     width: 30%;
-    height: 500px;
+    height: 100%;
     box-shadow: 26px 31px 51px 1px rgba(0,0,0,0.81);
 -webkit-box-shadow: 26px 31px 51px 1px rgba(0,0,0,0.81);
 -moz-box-shadow: 26px 31px 51px 1px rgba(0,0,0,0.81);
@@ -89,13 +89,14 @@
     color:wheat;
 }
 .profile-group-cluster{
+    text-align: left;
     margin: 2%;
     flex-direction: column;
     background-color: #2a2a2a;
     padding: 1%;
     border-radius: 10px;
     width: 60%;
-    height: 200px;
+    height: 100%;
     box-shadow: 26px 31px 51px 1px rgba(0,0,0,0.81);
 -webkit-box-shadow: 26px 31px 51px 1px rgba(0,0,0,0.81);
 -moz-box-shadow: 26px 31px 51px 1px rgba(0,0,0,0.81);
@@ -120,4 +121,15 @@
     margin-top: 4%;
     background-color: rgb(192, 25, 25);
     color:wheat;
+}
+
+.profile-group-cluster h1{
+    text-align: left;
+}
+
+.workout-list{
+    height: 190px;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
 }
