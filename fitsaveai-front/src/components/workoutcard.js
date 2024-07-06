@@ -11,9 +11,9 @@ const WorkoutCard = ({ workout, onDelete }) => {
     };
 
     const details = () => {
-        localStorage.setItem('NeededDetails', exercise.name);
+        // localStorage.setItem('NeededDetails', exercise.name);
     };
-    {console.log(workout.exercises)}
+    // {console.log(workout.exercises)}
     const downloadPDF = async () => {
         try {
             const response = await axios.get(`http://localhost:5000/api/workouts/${workout._id}/pdf`, {
