@@ -54,8 +54,8 @@ const Details = () => {
     };
     console.log(NeededDetails)
     return (
-        <div className="dashboard">
-            <h1>Your Dashboard</h1>
+        <div className="details">
+            <h1>{NeededDetails}</h1>
             <div className="workout-list">
                 {/* {workouts.map((workout) => (
                     <WorkoutCard

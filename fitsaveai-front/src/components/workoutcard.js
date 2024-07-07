@@ -10,8 +10,9 @@ const WorkoutCard = ({ workout, onDelete }) => {
         setIsExpanded(!isExpanded);
     };
 
-    const details = () => {
-        // localStorage.setItem('NeededDetails', exercise.name);
+    const details = (exercise, index) => {
+        console.log(exercise)
+        localStorage.setItem('NeededDetails', exercise.name);
     };
     // {console.log(workout.exercises)}
     const downloadPDF = async () => {
@@ -56,7 +57,7 @@ const WorkoutCard = ({ workout, onDelete }) => {
                             {exercise.time && <p>Duration: {exercise.time}</p>}
                             {exercise.notes && <p>Notes: {exercise.notes}</p>}
                             {exercise.duration && <p>Notes: {exercise.duration}</p>}
-                            <Link to="/details" onClick={details}><button>Details</button></Link> {}
+                            <Link to="/details" onClick={details(exercise, index)}><button>Details</button></Link> {}
                         </div>
                     ))}
                 </div>
