@@ -9,8 +9,10 @@
     box-sizing: border-box;
 }
 
+
 .dashboard-content {
     padding: 2rem;
+    
 }
 
 .dashboard-content h1 {
