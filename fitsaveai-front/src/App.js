@@ -32,7 +32,7 @@ function App() {
             <ProtectedRoute><DetailsPage /></ProtectedRoute>
             } />
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/register" element={<SignedProtectedRoute><RegisterPage /></SignedProtectedRoute>} />
+            <Route path="/register" element={<RegisterPage />} />
             <Route path="/accInfo" element={<AccountPage />} />
           </Routes>
         </div>

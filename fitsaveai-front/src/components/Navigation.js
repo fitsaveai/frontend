@@ -10,7 +10,6 @@ const Navigation = () => {
     const name = localStorage.getItem('name');
     const email = localStorage.getItem('email');
     const {user} = useContext(AuthContext); // Call useContext here
-    console.log(name);
     const navigate = useNavigate();
     const [isHovered, setIsHovered] = useState(false);
 

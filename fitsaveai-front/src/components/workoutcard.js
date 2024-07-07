@@ -1,19 +1,43 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import './workoutcard.css';
 
+
 const WorkoutCard = ({ workout, onDelete }) => {
     const [isExpanded, setIsExpanded] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const [prompt, setPrompt] = useState('');
+    // const prompt = localStorage.getItem('NeededDetails')
+
+    const generateDetails = async (prompt) => {
+        try {
+            // e.preventDefault(); // No longer needed
+            // setIsLoading(true); // No longer needed
+            const response = await axios.post(
+                'http://localhost:5000/api/ai/generateDetails',
+                { prompt },
+                { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }
+            );
+            console.log(response);
+        } catch (error) {
+            console.error('Error generating workout:', error);
+        } finally {
+            // setIsLoading(false); // No longer needed
+        }
+    };
+    
 
     const toggleExpand = () => {
         setIsExpanded(!isExpanded);
     };
 
-    const details = () => {
-        // localStorage.setItem('NeededDetails', exercise.name);
+    const details = (exercise) => {
+        console.log(exercise);
+        const name = ('How to do', exercise.name)
+        
+        generateDetails(name);
     };
-    // {console.log(workout.exercises)}
     const downloadPDF = async () => {
         try {
             const response = await axios.get(`http://localhost:5000/api/workouts/${workout._id}/pdf`, {
@@ -56,7 +80,7 @@ const WorkoutCard = ({ workout, onDelete }) => {
                             {exercise.time && <p>Duration: {exercise.time}</p>}
                             {exercise.notes && <p>Notes: {exercise.notes}</p>}
                             {exercise.duration && <p>Notes: {exercise.duration}</p>}
-                            <Link to="/details" onClick={details}><button>Details</button></Link> {}
+                            <Link to="/details" onClick={() => details(exercise)}><button>Details</button></Link> 
                         </div>
                     ))}
                 </div>
