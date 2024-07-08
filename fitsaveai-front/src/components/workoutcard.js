@@ -19,7 +19,8 @@ const WorkoutCard = ({ workout, onDelete }) => {
                 { prompt },
                 { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }
             );
-            console.log(response);
+            console.log(response.data.description);
+            localStorage.setItem('response', response.data.description);
         } catch (error) {
             console.error('Error generating workout:', error);
         } finally {
@@ -34,8 +35,9 @@ const WorkoutCard = ({ workout, onDelete }) => {
 
     const details = (exercise) => {
         console.log(exercise);
-        const name = ('How to do', exercise.name)
-        
+        const name = ('How to do', exercise.name);
+        localStorage.setItem('NeededDetails', exercise.name)
+        console.log(name);
         generateDetails(name);
     };
     const downloadPDF = async () => {

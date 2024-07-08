@@ -4,20 +4,30 @@ import WorkoutCard from './workoutcard';
 import './details.css';
 
 const Details = () => {
+    const [showContent, setShowContent] = useState(false);
+
+    useEffect(() => {
+        // Delay execution by 10 seconds
+        setTimeout(() => {
+            setShowContent(true);
+        }, 3000);
+    }, []);
+
     const NeededDetails = localStorage.getItem('NeededDetails');
-    // console.log(NeededDetails)
+    const Response = localStorage.getItem('response');
+
     return (
         <div className="details">
             <h1>{NeededDetails}</h1>
+            {showContent ? (
+                <div className="workout-list">
+                    <p>{Response}</p>
+                </div>
+            ):(
             <div className="workout-list">
-                {/* {workouts.map((workout) => (
-                    <WorkoutCard
-                        key={workout._id}
-                        workout={workout}
-                        onDelete={() => deleteWorkout(workout._id)}
-                    />
-                ))} */}
+                <p>generating...</p>
             </div>
+            )}
         </div>
     );
 };
