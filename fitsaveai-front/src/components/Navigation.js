@@ -49,7 +49,9 @@ const Navigation = () => {
                         onMouseLeave={() => setIsHovered(false)}
                     />
                     
-                    <a onClick={logoClick} className="nav-logo">FitSaverAI</a>
+                    <a onClick={logoClick} className="nav-logo">
+                    <span className="fit">Fit</span><span className="saveai">SaveAI</span><span className="dot-org">.org</span>
+                    </a>
                     {token ? (
                     <>
                         <Link to="/dashboard" className="nav-link">Dashboard</Link>
