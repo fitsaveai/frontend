@@ -35,7 +35,7 @@ const WorkoutCard = ({ workout, onDelete }) => {
 
     const details = (exercise) => {
         console.log(exercise);
-        const name = ('How to do', exercise.name);
+        const name = 'How to do ' + exercise.name;
         localStorage.setItem('NeededDetails', exercise.name)
         console.log(name);
         generateDetails(name);

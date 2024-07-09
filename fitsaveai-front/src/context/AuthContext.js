@@ -64,6 +64,21 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
+    const changeName = async (name) => {
+        try {
+            const res = await axios.post('http://localhost:5000/api/auth/changeName', { name });
+            localStorage.setItem('name', res.data.user.name);
+            const decodedUser = jwtDecode(res.data.token);
+            // console.log(res.data);
+            console.log(res.data.user.name)
+            setUser(decodedUser);
+            return true;
+        } catch (error) {
+            console.error('Login error:', error);
+            return false;
+        }
+    };
+
     const logout = () => {
         localStorage.removeItem('token');
         setUser(null);
