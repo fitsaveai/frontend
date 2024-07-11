@@ -64,9 +64,11 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
-    const changeName = async (name) => {
+    const changeUName = async (name, token) => {
         try {
-            const res = await axios.post('http://localhost:5000/api/auth/changeName', { name });
+            console.log('hi');
+            console.log(name);
+            const res = await axios.post('http://localhost:5000/api/auth/changeName', { name, token });
             localStorage.setItem('name', res.data.user.name);
             const decodedUser = jwtDecode(res.data.token);
             // console.log(res.data);
@@ -101,7 +103,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     return (
-        <AuthContext.Provider value={{ user, login, register, logout, loading, verifyToken }}>
+        <AuthContext.Provider value={{ user, login, register, logout, loading, verifyToken, changeUName }}>
             {children}
         </AuthContext.Provider>
     );
