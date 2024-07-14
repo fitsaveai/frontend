@@ -36,7 +36,7 @@ export const AuthProvider = ({ children }) => {
             localStorage.setItem('name', res.data.user.name);
             const decodedUser = jwtDecode(res.data.token);
             // console.log(res.data);
-            console.log(res.data.user.name)
+            console.log(res.data.user.name);
             setUser(decodedUser);
             return true;
         } catch (error) {
@@ -60,23 +60,6 @@ export const AuthProvider = ({ children }) => {
             return true;
         } catch (error) {
             console.error('Registration error:', error);
-            return false;
-        }
-    };
-
-    const changeUName = async (name, token) => {
-        try {
-            console.log('hi');
-            console.log(name);
-            const res = await axios.post('http://localhost:5000/api/auth/changeName', { name, token });
-            localStorage.setItem('name', res.data.user.name);
-            const decodedUser = jwtDecode(res.data.token);
-            // console.log(res.data);
-            console.log(res.data.user.name)
-            setUser(decodedUser);
-            return true;
-        } catch (error) {
-            console.error('Login error:', error);
             return false;
         }
     };
