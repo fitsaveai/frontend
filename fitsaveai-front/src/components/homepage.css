@@ -1,22 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-
-
 .home-page {
     color: #bcbcbc;
-    
 }
 
 .navbar {
     display: flex;
     align-items: center;
-    padding: 1rem 0rem 1rem 1rem;
+    padding: 1rem 1rem;
     background-color: #000;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
+    justify-content: space-between;
 }
+
 .nav-logo-img {
     height: 40px; 
     width: auto; 
@@ -24,14 +23,16 @@
     transition: transform 0.3s ease-in-out;
 }
 
-.nav-right{
-    margin-left: 60%;
-}
-.nav-left,
-.nav-right {
-    
+.nav-left {
     display: flex;
     align-items: center;
+
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    margin-right: 2rem;
 }
 
 .nav-logo {
@@ -40,15 +41,12 @@
     font-weight: bold;
     font-size: 1.3rem;
     margin-right: 2rem;
-    text-decoration: none;
-
 }
 
 .nav-link {
     margin-right: 1rem;
     color: white;
     text-decoration: none;
-
     transition: color 0.33s ease;
 }
 
@@ -64,7 +62,6 @@
     font-size: 1.3rem;
     transition: background-color 0.3s ease, transform 0.3s ease;
     text-decoration: none;
-
 }
 
 .btn-primary {
@@ -89,7 +86,6 @@
 }
 
 .hero {
-    
     height: calc(180vh - 170px);
     display: flex;
     flex-direction: column;
@@ -98,8 +94,9 @@
     text-align: center;
     background: linear-gradient(to bottom, #808080, #404040);
     padding: 2rem;
-    margin-top:5%; 
+    margin-top: 5%; 
 }
+
 .boxes-container {
     margin-top: 140px;
     display: flex;
@@ -129,6 +126,7 @@
     font-size: 1.2rem;
     line-height: 1.6;
 }
+
 .hero h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
@@ -144,15 +142,13 @@
 .cta-buttons {
     display: flex;
     gap: 1rem;
-    margin-top:25px;
+    margin-top: 25px;
     margin-bottom: 140px;
-
 }
 
 .cta-buttons .btn {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
-
 
 .footer {
     height: 150px; 
@@ -209,8 +205,6 @@
 
     .nav-left,
     .nav-right {
-        text-decoration: none;
-
         flex-direction: column;
         align-items: flex-start;
     }
@@ -249,7 +243,6 @@
     }
 }
 
-
 .btn-tertiary {
     padding: 12px 80%;
     text-align: center;
@@ -259,10 +252,10 @@
     color: white;
     margin-right: 0rem;
     border-radius: 10px 10px 0px 0px;
-    transition: .25s;
+    transition: 0.25s;
 }
+
 .btn-tertiary:hover {
     background-color: #343232;
     color: rgb(181, 175, 175);
 }
-

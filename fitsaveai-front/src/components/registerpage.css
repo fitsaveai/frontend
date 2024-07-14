@@ -65,10 +65,23 @@ body {
 .register-page p {
     margin-top: 15px;
     text-align: center;
-    color: #e74c3c;
 }
 
 .error-message {
     color: #e74c3c;
     margin-bottom: 10px;
+}
+
+.login-text {
+    color: white;
+}
+
+.login-link {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.login-link:hover {
+    color: #1e90ff;
 }
