@@ -40,7 +40,7 @@ const HomePage = () => {
                     < p>Phone: +1 234 567 890</p>
                 </div>
                 <div className="footer-cta">
-                    <button className="btn btn-primary">Get Started</button>
+                    <Link to="/register" className="btn btn-primary">Get Started</Link>
                 </div>
             </footer>
         </div>

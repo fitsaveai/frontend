@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
 
 .profile-page {
-    font-family:Poppins, Arial, sans-serif;
+    font-family: Poppins, Arial, sans-serif;
     color: white;
     background-color: #1a1a1a;
     min-height: 100vh;
@@ -22,19 +22,11 @@
     gap: 2rem;
 }
 
-/* .workout-card {
-    background-color: #2a2a2a;
-    border-radius: 10px;
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-} */
-
 .workout-card h2 {
     margin-bottom: 0.5rem;
+    text-align: left;
 }
+
 
 .workout-card p {
     margin-bottom: 1rem;
@@ -50,45 +42,86 @@
     border-radius: 10px;
     padding: 2%;
     display: flex;
-    /* align-items: center; */
     text-align: center;
     justify-content: left;
+    gap: 2%;
 }
 
-.profile-img-cluster{
+.profile-img-cluster {
     margin: 2%;
     flex-direction: column;
     background-color: #2a2a2a;
     padding: 1%;
     border-radius: 10px;
     width: 30%;
-    height: 100%;
-    box-shadow: 26px 31px 51px 1px rgba(0,0,0,0.81);
--webkit-box-shadow: 26px 31px 51px 1px rgba(0,0,0,0.81);
--moz-box-shadow: 26px 31px 51px 1px rgba(0,0,0,0.81);
-    /* display: flex; */
+    height: auto;
+    box-shadow: 26px 31px 51px 1px rgba(0, 0, 0, 0.81);
+    -webkit-box-shadow: 26px 31px 51px 1px rgba(0, 0, 0, 0.81);
+    -moz-box-shadow: 26px 31px 51px 1px rgba(0, 0, 0, 0.81);
+    transition: background-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    justify-content: space-between;
 }
 
-.pfp-img{
-    font-family: 'Poppins';
+.profile-img-cluster:hover {
+    background-color: black;
+}
+
+.profile-img-cluster h1 {
+    color: white;
+    transition: color 0.3s ease;
+    text-align: center; /* Center the name text */
+    
+}
+
+.profile-img-cluster:hover h1 {
+    color: gray;
+}
+
+.button, .pfp-img, .pfp-img1 {
+    font-family: 'Poppins', Arial, sans-serif;
     border-radius: 10px;
     border: none;
-    margin-top: 10%;
-    width: 96%;
-    padding: 2%;
-    font-size: 30px;
-    background-color: red;
-    transition: 1s;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ff4c4c;
     color: white;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    min-width: 350px;
 }
 
-.pfp-img:hover{
-    cursor: pointer;
-    margin-top: 9%;
-    background-color: rgb(192, 25, 25);
-    color:wheat;
+.button:hover, .pfp-img:hover, .pfp-img1:hover {
+    background-color: #d94444;
+    color: wheat;
+    transform: translateY(-2px);
 }
-.profile-group-cluster{
+
+.button:active, .pfp-img:active, .pfp-img1:active {
+    background-color: #c43b3b;
+    transform: translateY(1px);
+}
+
+.pfp-img {
+    width: 96%;
+    font-size: 30px;
+    margin-top: auto;
+}
+
+.pfp-img1 {
+    margin-top: 5%;
+    width: 96%;
+    font-size: 30px;
+    margin-left: 0.75rem;
+}
+
+.pfp-img1:hover {
+    margin-top: 5%;
+}
+
+.profile-group-cluster {
     text-align: left;
     margin: 2%;
     flex-direction: column;
@@ -96,40 +129,24 @@
     padding: 1%;
     border-radius: 10px;
     width: 60%;
-    height: 100%;
-    box-shadow: 26px 31px 51px 1px rgba(0,0,0,0.81);
--webkit-box-shadow: 26px 31px 51px 1px rgba(0,0,0,0.81);
--moz-box-shadow: 26px 31px 51px 1px rgba(0,0,0,0.81);
-    /* display: flex; */
+    height: auto;
+    box-shadow: 26px 31px 51px 1px rgba(0, 0, 0, 0.81);
+    -webkit-box-shadow: 26px 31px 51px 1px rgba(0, 0, 0, 0.81);
+    -moz-box-shadow: 26px 31px 51px 1px rgba(0, 0, 0, 0.81);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.pfp-img1{
-    font-family: 'Poppins';
-    border-radius: 10px;
-    border: none;
-    margin-top: 5%;
-    width: 96%;
-    padding: 2%;
-    font-size: 30px;
-    background-color: red;
-    transition: 1s;
-    color: white;
-}
-
-.pfp-img1:hover{
-    cursor: pointer;
-    margin-top: 4%;
-    background-color: rgb(192, 25, 25);
-    color:wheat;
-}
-
-.profile-group-cluster h1{
+.profile-group-cluster h1 {
     text-align: left;
 }
 
-.workout-list1{
+.workout-list1 {
     height: 190px;
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
+
 }

@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import './loginpage.css';
 
@@ -10,9 +10,10 @@ const LoginPage = () => {
     const { login } = useContext(AuthContext);
     const token = localStorage.getItem('token');
     const navigate = useNavigate();
-    {token && (
-        navigate('/dashboard')
-    )}
+
+    if (token) {
+        navigate('/dashboard');
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -38,6 +39,7 @@ const LoginPage = () => {
                 <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" required />
                 <button type="submit" className="btn btn-primary">Login</button>
             </form>
+            <p className="register-text">Don't have an account? <Link to="/register" className="register-link">Register here</Link></p>
         </div>
     );
 };
