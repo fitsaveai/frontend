@@ -1,0 +1,54 @@
+.oasis {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.oasis h1,
+.oasis h2,
+.oasis h3 {
+    text-align: center;
+}
+
+.upload-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.starter-section,
+.featured-workouts,
+.community-workouts {
+    margin-bottom: 40px;
+}
+
+.starter-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.starter-workouts,
+.starter-diets {
+    width: 45%;
+    min-width: 300px;
+}
+
+.starter-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.workout-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
