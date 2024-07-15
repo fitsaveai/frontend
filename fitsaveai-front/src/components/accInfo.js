@@ -13,29 +13,6 @@ const ExplorePage = () => {
     const [error, setError] = useState('');
     const navigate = useNavigate();
     const token = localStorage.getItem('token');
-    const changeName = async (e) => {
-        // console.log(token);
-        e.preventDefault();
-        const name = document.getElementById("NameChange").value;
-        setError('');
-        if (token) {
-            try {
-                const success = await changeUName(name, token);
-    
-                if (success) {
-                    console.log('hi');
-                    navigate('/dashboard');
-                } else {
-                    setError('Login failed. Please check your credentials.');
-                    // console.log('wut');
-                }
-            } catch (error) {
-                console.log('da hell is this')
-                console.error('Error:', error);
-                setError('An error occurred. Please try again.');
-            }
-        }
-    };
     
     
     return (
