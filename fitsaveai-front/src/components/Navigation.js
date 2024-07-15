@@ -47,17 +47,16 @@ const Navigation = () => {
                         onMouseEnter={handleMouseEnter}
                         onMouseLeave={() => setIsHovered(false)}
                     />
-                    
-                    <a onClick={logoClick} className="nav-logo">
+                    <Link to="/dashboard" className="nav-logo">
                     <span className="fit">Fit</span><span className="saveai">SaveAI</span><span className="dot-org">.org</span>
-                    </a>
+                    </Link>
                     {token ? (
                     <>
                         <Link to="/dashboard" className="nav-link">Dashboard</Link>
                     </>
                 ) : (
                     <>
-                    <a href="/" className="nav-link">Home</a>
+                    {/* <a href="/" className="nav-link">Home</a> */}
                         <a href="/explore" className="nav-link">Explore</a>
                     </>
                 )}

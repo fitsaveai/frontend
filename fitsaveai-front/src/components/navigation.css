@@ -83,3 +83,7 @@
 .nav-logo:hover .saveai {
     color: gray; 
 }
+.nav-logo{
+    cursor: pointer;
+}
+
