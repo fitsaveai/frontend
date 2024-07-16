@@ -75,7 +75,7 @@ const WorkoutCard = ({ workout, onDelete }) => {
             {isExpanded && (
                 <div className="workout-details">
                     {workout.exercises.map((exercise, index) => (
-                        <div key={index} className="exercise">
+                        <div key={index} className="exercise3">
                             <h3>{exercise.name}</h3>
                             <p>Sets: {exercise.sets}</p>
                             <p>Reps: {exercise.reps}</p>
