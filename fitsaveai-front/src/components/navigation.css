@@ -87,3 +87,19 @@
     cursor: pointer;
 }
 
+.btn-tertiary{
+    border: none;
+    min-width: 130px;
+    border-radius: 10px 10px 0px 0px;
+    color: rgb(255, 255, 255);
+    background-color: #000000;
+    padding: 12px 16px;
+    font-size: 16px;
+    transition: 0.5s;
+}
+
+.btn-tertiary:hover{
+    background-color: #575757;
+}
+
+
