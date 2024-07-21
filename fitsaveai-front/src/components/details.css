@@ -5,12 +5,13 @@
     min-height: 100vh;
     width: 100%;
     margin: 0 auto;
-    padding: 30% 5% 5% 5%;
+    padding: 10% 5% 5% 5%;
     box-sizing: border-box;
 }
 
 .details h1 {
     text-align: center;
+    font-size: 40px;
     margin-bottom: 2rem;
 }
 
@@ -29,6 +30,7 @@
 
 .workout-generator h2 {
     margin-bottom: 1rem;
+    text-align: center;
 }
 /* 
 .workout-generator textarea {
@@ -61,12 +63,24 @@
     cursor: not-allowed;
 } */
 
-.user-workouts h2 {
-    margin-bottom: 1rem;
+.user-workouts  {
+    font-size: 30px;
+  margin-bottom: 1rem;
 }
 
-.workout-list {
-    display: grid;
+.workout-list2 {
+    width: 100%;
+    display: flex;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    list-style-type: none;
+    padding: 0;
+}
+
+.workout-list2 p {
+    font-size: 25px;
+    width: 100%;
+    display: flex;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
     list-style-type: none;

@@ -20,7 +20,7 @@ const Details = () => {
         <div className="details">
             <h1>{NeededDetails}</h1>
             {showContent ? (
-                <div className="workout-list">
+                <div className="workout-list2">
                     <p>{Response}</p>
                 </div>
             ):(
