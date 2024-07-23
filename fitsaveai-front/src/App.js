@@ -10,6 +10,9 @@ import RegisterPage from './components/registerpage';
 import ProfilePage from './components/profile';
 import AccountPage from './components/accInfo';
 import DetailsPage from './components/details';
+import Oasis from './components/oasis'; 
+import WorkoutDetail from './components/WorkoutDetail';
+import DietDetail from './components/DietDetail'; 
 //notes: make appinfo protectd
 function App() {
   return (
@@ -34,6 +37,13 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/accInfo" element={<AccountPage />} />
+            <Route path="/oasis" element={  
+              <ProtectedRoute>
+                <Oasis />
+              </ProtectedRoute>
+            } />
+            <Route path="/workout/:id" element={<WorkoutDetail />} />
+            <Route path="/diet/:id" element={<DietDetail />} />
           </Routes>
         </div>
       </Router>
