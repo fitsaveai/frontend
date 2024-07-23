@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import WorkoutCard from './workoutcard';
+import WorkoutCard from './WorkoutCard';
 import StarterCard from './StarterCard';
 import UploadWorkoutModal from './UploadWorkoutModal';
 import './oasis.css';
 
 const Oasis = () => {
+    console.log('Rendering Oasis component');
+
     const [starterWorkouts, setStarterWorkouts] = useState([]);
     const [starterDiets, setStarterDiets] = useState([]);
     const [featuredWorkouts, setFeaturedWorkouts] = useState([]);
@@ -13,6 +15,7 @@ const Oasis = () => {
     const [isUploadModalOpen, setIsUploadModalOpen] = useState(false);
 
     useEffect(() => {
+        console.log('Oasis component mounted');
         fetchStarterWorkouts();
         fetchStarterDiets();
         fetchFeaturedWorkouts();
@@ -21,7 +24,9 @@ const Oasis = () => {
 
     const fetchStarterWorkouts = async () => {
         try {
+            console.log('Fetching starter workouts');
             const response = await axios.get('http://localhost:5000/api/workouts/starter');
+            console.log('Starter workouts fetched:', response.data);
             setStarterWorkouts(response.data);
         } catch (error) {
             console.error('Error fetching starter workouts:', error);
@@ -30,7 +35,9 @@ const Oasis = () => {
 
     const fetchStarterDiets = async () => {
         try {
+            console.log('Fetching starter diets');
             const response = await axios.get('http://localhost:5000/api/diets/starter');
+            console.log('Starter diets fetched:', response.data);
             setStarterDiets(response.data);
         } catch (error) {
             console.error('Error fetching starter diets:', error);
@@ -39,7 +46,9 @@ const Oasis = () => {
 
     const fetchFeaturedWorkouts = async () => {
         try {
+            console.log('Fetching featured workouts');
             const response = await axios.get('http://localhost:5000/api/workouts/featured');
+            console.log('Featured workouts fetched:', response.data);
             setFeaturedWorkouts(response.data);
         } catch (error) {
             console.error('Error fetching featured workouts:', error);
@@ -48,7 +57,9 @@ const Oasis = () => {
 
     const fetchCommunityWorkouts = async () => {
         try {
+            console.log('Fetching community workouts');
             const response = await axios.get('http://localhost:5000/api/workouts/community');
+            console.log('Community workouts fetched:', response.data);
             setCommunityWorkouts(response.data);
         } catch (error) {
             console.error('Error fetching community workouts:', error);
@@ -57,19 +68,37 @@ const Oasis = () => {
 
     const handleLike = async (workoutId) => {
         try {
+            console.log('Liking workout:', workoutId);
             await axios.post(`http://localhost:5000/api/workouts/${workoutId}/like`, {}, {
                 headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
             });
-            fetchCommunityWorkouts();
+            console.log('Workout liked successfully');
+            fetchCommunityWorkouts(); 
         } catch (error) {
             console.error('Error liking workout:', error);
         }
     };
 
+    const handleWorkoutUpload = () => {
+        console.log('Workout uploaded successfully');
+        fetchCommunityWorkouts(); 
+        setIsUploadModalOpen(false);
+    };
+
+    const handleUploadButtonClick = () => {
+        console.log('Upload button clicked');
+        setIsUploadModalOpen(true);
+    };
+
+    console.log('Current state - isUploadModalOpen:', isUploadModalOpen);
+
     return (
         <div className="oasis">
             <h1>Welcome to the Oasis</h1>
-            <button onClick={() => setIsUploadModalOpen(true)} className="upload-btn">
+            <button
+                onClick={handleUploadButtonClick}
+                className="upload-btn"
+            >
                 Upload Workout
             </button>
 
@@ -125,8 +154,11 @@ const Oasis = () => {
 
             {isUploadModalOpen && (
                 <UploadWorkoutModal
-                    onClose={() => setIsUploadModalOpen(false)}
-                    onUpload={fetchCommunityWorkouts}
+                    onClose={() => {
+                        console.log('Closing upload modal');
+                        setIsUploadModalOpen(false);
+                    }}
+                    onUpload={handleWorkoutUpload}
                 />
             )}
         </div>

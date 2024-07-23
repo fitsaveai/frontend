@@ -4,7 +4,7 @@ import './profile.css';
 import axios from 'axios';
 import profile from '../profileImg/profile.png'
 import { Link, useNavigate } from 'react-router-dom';
-import WorkoutCard from './workoutcard';
+import WorkoutCard from './WorkoutCard';
 import WorkoutList from './workoutlist';
 
 const ExplorePage = () => {

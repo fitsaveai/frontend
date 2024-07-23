@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import WorkoutCard from './workoutcard';
+import WorkoutCard from './WorkoutCard';
 import './details.css';
 
 const Details = () => {

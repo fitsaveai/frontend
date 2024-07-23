@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import WorkoutCard from './workoutcard';
+import WorkoutCard from './WorkoutCard';
 import './dashboard.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp,faArrowDownZA, faArrowUpAZ, faArrowsUpDown, faArrowDown, faPaperPlane} from '@fortawesome/free-solid-svg-icons';

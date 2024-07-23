@@ -13,6 +13,7 @@ import DetailsPage from './components/details';
 import Oasis from './components/oasis'; 
 import WorkoutDetail from './components/WorkoutDetail';
 import DietDetail from './components/DietDetail'; 
+
 //notes: make appinfo protectd
 function App() {
   return (
