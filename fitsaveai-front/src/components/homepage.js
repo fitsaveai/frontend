@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './homepage.css';
 import { useNavigate } from 'react-router-dom';
-import carousel from'./carousel';
+import Carousel from'./carousel';
 
 const HomePage = () => {
     const token = localStorage.getItem('token');
@@ -31,7 +31,7 @@ const HomePage = () => {
             let maxHeight = 0;
 
             boxes.forEach(box => {
-                box.style.height = 'auto'; // Reset height
+                box.style.height = 'auto'; 
                 if (box.offsetHeight > maxHeight) {
                     maxHeight = box.offsetHeight;
                 }

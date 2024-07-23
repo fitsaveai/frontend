@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 import './carousel.css';
 
 const images = [
-    'url-to-image-1.jpg',
-    'url-to-image-2.jpg',
-    'url-to-image-3.jpg',
+    'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F673217844283870026%2F&psig=AOvVaw1HdGlICyVcefwXRd7nlyoF&ust=1721188106257000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCLiro8LTqocDFQAAAAAdAAAAABAE',
+    'https://cdn.pixabay.com/photo/2016/11/14/03/16/arms-1822476_960_720.jpg',
+    'https://cdn.pixabay.com/photo/2017/01/19/18/01/legs-1991140_960_720.jpg',
 ];
 
 const Carousel = () => {
