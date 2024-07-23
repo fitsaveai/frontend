@@ -41,22 +41,24 @@ const Navigation = () => {
     return (
         <nav className="navbar">
             <div className="nav-left">
-                <img
-                    src={isHovered ? logoAnimated : logoStatic}
-                    alt="FitSaverAI Logo"
-                    className="nav-logo-img"
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={() => setIsHovered(false)}
-                />
-                <a onClick={logoClick} className="nav-logo">FitSaverAI</a>
-                {token ? (
+            <img
+                        src={isHovered ? logoAnimated : logoStatic}
+                        alt="FitSaverAI Logo"
+                        className="nav-logo-img"
+                        onMouseEnter={handleMouseEnter}
+                        onMouseLeave={() => setIsHovered(false)}
+                    />
+                    <Link to="/dashboard" className="nav-logo">
+                    <span className="fit">Fit</span><span className="saveai">SaveAI</span><span className="dot-org">.org</span>
+                    </Link>
+                    {token ? (
                     <>
                         <Link to="/dashboard" className="nav-link">Dashboard</Link>
                         <Link to="/oasis" className="nav-link">Oasis</Link>
                     </>
                 ) : (
                     <>
-                        <a href="/" className="nav-link">Home</a>
+                    {/* <a href="/" className="nav-link">Home</a> */}
                         <a href="/explore" className="nav-link">Explore</a>
                     </>
                 )}

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import WorkoutCard from './workoutcard';
 import './dashboard.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowUp,faArrowDownZA, faArrowUpAZ, faArrowsUpDown, faArrowDown, faPaperPlane} from '@fortawesome/free-solid-svg-icons';
 
 const Dashboard = () => {
     const [workouts, setWorkouts] = useState([]);
@@ -62,8 +64,10 @@ const Dashboard = () => {
                     placeholder="Describe the workout you want to generate..."
                     rows={4}
                 />
+
                 <button type="submit" disabled={isLoading}>
-                    {isLoading ? 'Generating...' : 'Generate Workout'}
+                    <FontAwesomeIcon icon={faPaperPlane} />
+                    {/* {isLoading ? 'Generating...' : 'Generate Workout'} */}
                 </button>
             </form>
             <div className="workout-list">

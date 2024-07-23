@@ -4,12 +4,15 @@
     padding: 16px;
     font-size: 16px;
     border: none;
+    
 }
 
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
     position: inherit;
     display: inline-block;
+    margin-right: 6rem;
+
 }
 
 /* .btn-tertiary {
@@ -28,7 +31,7 @@
     display: none;
     position: absolute;
     background:none;
-    min-width: 160px;
+    min-width: 130px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
@@ -66,3 +69,37 @@
 .dropdown:hover .dropbtn {
     background-color: #3e8e41;
 }
+.nav-logo .fit,
+.nav-logo .saveai {
+    transition: color 0.3s ease; 
+}
+.nav-logo .dot-org {
+    color: white; 
+}
+.nav-logo:hover .fit {
+    color: red; 
+}
+
+.nav-logo:hover .saveai {
+    color: gray; 
+}
+.nav-logo{
+    cursor: pointer;
+}
+
+.btn-tertiary{
+    border: none;
+    min-width: 130px;
+    border-radius: 10px 10px 0px 0px;
+    color: rgb(255, 255, 255);
+    background-color: #000000;
+    padding: 12px 16px;
+    font-size: 16px;
+    transition: 0.5s;
+}
+
+.btn-tertiary:hover{
+    background-color: #575757;
+}
+
+
