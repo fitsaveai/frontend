@@ -1,0 +1,27 @@
+.btn-secondary5, .footerp {
+    margin-bottom: 10px;
+    background-color: #000;
+    color: white;
+    padding: 0.5rem 1rem; /* Added padding */
+    border-radius: 5px; /* Added border radius */
+    text-decoration: none; /* Ensure text decoration is none */
+    display: inline-block; /* Ensure display inline-block */
+    font-size: 1.3rem; /* Added font size */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Added transition */
+}
+
+.btn-secondary5:hover,
+.footerp:hover {
+    /* background-color: #555; */
+    transform: translateY(-2px);
+}
+
+.btn3, .footerp{
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.3rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}

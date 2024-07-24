@@ -81,7 +81,7 @@ const HomePage = () => {
                 <h2>Why Choose FitSaveAI?</h2>
                 <p>Our AI-driven platform tailors workouts to your needs...</p>
             </section>
-            <footer className="footer">
+            {/* <footer className="footer">
                 <div className="footer-contact">
                     <p>Contact Us: something@fitsaverai.com</p>
                     <p>Phone: +1 234 567 890</p>
@@ -89,7 +89,7 @@ const HomePage = () => {
                 <div className="footer-cta">
                     <Link to="/register" className="btn btn-primary">Get Started</Link>
                 </div>
-            </footer>
+            </footer> */}
         </div>
     );
 };

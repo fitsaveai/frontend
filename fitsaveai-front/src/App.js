@@ -13,7 +13,9 @@ import DetailsPage from './components/details';
 import Oasis from './components/oasis'; 
 import WorkoutDetail from './components/WorkoutDetail';
 import DietDetail from './components/DietDetail'; 
-
+import PrivacyPolicy from './components/privacypolicy'; 
+import TermsOfService from './components/tos'; 
+import Footer from './components/footer';
 //notes: make appinfo protectd
 function App() {
   return (
@@ -29,6 +31,8 @@ function App() {
                 <Dashboard />
               </ProtectedRoute>
             } />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/profile" element={
             <ProtectedRoute><ProfilePage /></ProtectedRoute>
             } />
@@ -46,6 +50,7 @@ function App() {
             <Route path="/workout/:id" element={<WorkoutDetail />} />
             <Route path="/diet/:id" element={<DietDetail />} />
           </Routes>
+          <Footer />
         </div>
       </Router>
     </AuthProvider>
