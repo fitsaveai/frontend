@@ -64,16 +64,16 @@ const HomePage = () => {
                 <carousel />
                 <div className="boxes-container">
                     <div className="box reveal">
-                        <h2>Chest Day</h2>
-                        <p>Description of Chest workouts...</p>
+                        <h2>Trainers</h2>
+                        <p>Effortlessly generate tailored workouts for your clients</p>
                     </div>
                     <div className="box reveal">
-                        <h2>Arms</h2>
-                        <p>Description of Arm workouts...</p>
+                        <h2>Athletes</h2>
+                        <p>Create workout and meal plans for all your needs</p>
                     </div>
                     <div className="box reveal">
-                        <h2>Legs</h2>
-                        <p>Description of Legs workouts...</p>
+                        <h2>Schools</h2>
+                        <p>Create plans at scale for all sports programs</p>
                     </div>
                 </div>
             </main>
