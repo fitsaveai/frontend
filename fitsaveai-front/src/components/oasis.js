@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import WorkoutCard from './WorkoutCard';
+import WorkoutCard from './workoutcard';
 import StarterCard from './StarterCard';
 import UploadWorkoutModal from './UploadWorkoutModal';
 import './oasis.css';
