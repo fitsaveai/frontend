@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import { AuthProvider, AuthContext } from './context/AuthContext';
 import Navigation from './components/Navigation';
 import HomePage from './components/homepage';
-import ExplorePage from './components/explorepage';
+// import ExplorePage from './components/explorepage';
 import Dashboard from './components/dashboard';
 import LoginPage from './components/loginpage';
 import RegisterPage from './components/registerpage';
@@ -25,7 +25,7 @@ function App() {
           <Navigation />
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/explore" element={<SignedProtectedRoute><ExplorePage /></SignedProtectedRoute>} />
+            {/* <Route path="/explore" element={<SignedProtectedRoute><ExplorePage /></SignedProtectedRoute>} /> */}
             <Route path="/dashboard" element={
               <ProtectedRoute>
                 <Dashboard />
