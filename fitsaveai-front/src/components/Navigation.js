@@ -59,7 +59,6 @@ const Navigation = () => {
                 ) : (
                     <>
                     {/* <a href="/" className="nav-link">Home</a> */}
-                        <a href="/explore" className="nav-link">Explore</a>
                     </>
                 )}
             </div>
