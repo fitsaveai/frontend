@@ -33,11 +33,21 @@
     border-radius: 8px;
 }
 
-.workout-generator h2 {
-    margin-bottom: 1rem;
+.workout-generator {
+    height: 100%;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: #2a2a2a;
+    border-radius: 8px;
+    transition: 1s;
+}
+
+.workout-generator:hover  {
+    box-shadow: 0 10px 20px rgb(255, 255, 255,0.2);
 }
 
 .workout-generator textarea {
+    border-color: white;
     width: 98%;
     padding: 1%;
     /* margin-bottom: 1rem; */
@@ -47,7 +57,13 @@
     background-color: #333;
     color: white;
     resize: none;
+    transition: 1s;
 }
+/* 
+.workout-generator textarea:focus {
+    border: 1px solid #444;
+    box-shadow: 0 20px 40px rgba(255, 255, 255, 0.2);
+} */
 
 .workout-generator button {
     top: 13.5%;
