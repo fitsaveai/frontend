@@ -10,7 +10,7 @@ const DietDetail = () => {
     useEffect(() => {
         const fetchDiet = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/api/diets/${id}`);
+                const response = await axios.get(`https://fitsaveai.uk.r.appspot.com/api/diets/${id}`);
                 setDiet(response.data);
             } catch (error) {
                 console.error('Error fetching diet:', error);

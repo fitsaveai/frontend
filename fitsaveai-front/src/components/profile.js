@@ -21,7 +21,7 @@ const ExplorePage = () => {
 
     const fetchWorkouts = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/workouts', {
+            const response = await axios.get('https://fitsaveai.uk.r.appspot.com/api/workouts', {
                 headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
             });
             setWorkouts(response.data);

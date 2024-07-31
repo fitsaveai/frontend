@@ -28,7 +28,7 @@
 
             setMessage('Attempting registration...');
             try {
-                const response = await axios.post('http://localhost:5000/api/auth/register',
+                const response = await axios.post('https://fitsaveai.uk.r.appspot.com/api/auth/register',
                     { name, email, password },
                     {
                         withCredentials: true,

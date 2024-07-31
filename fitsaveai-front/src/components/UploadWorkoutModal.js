@@ -26,7 +26,7 @@ const UploadWorkoutModal = ({ onClose, onUpload }) => {
             }
 
             console.log('Sending POST request to upload workout');
-            const response = await axios.post('http://localhost:5000/api/workouts',
+            const response = await axios.post('https://fitsaveai.uk.r.appspot.com/api/workouts',
                 { title, description, category, isPublic },
                 { headers: { Authorization: `Bearer ${token}` } }
             );

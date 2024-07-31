@@ -15,7 +15,7 @@ const WorkoutCard = ({ workout, onDelete }) => {
             // e.preventDefault(); // No longer needed
             // setIsLoading(true); // No longer needed
             const response = await axios.post(
-                'http://localhost:5000/api/ai/generateDetails',
+                'https://fitsaveai.uk.r.appspot.com/api/ai/generateDetails',
                 { prompt },
                 { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }
             );

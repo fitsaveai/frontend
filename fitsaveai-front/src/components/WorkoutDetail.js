@@ -10,7 +10,7 @@ const WorkoutDetail = () => {
     useEffect(() => {
         const fetchWorkout = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/api/workouts/${id}`);
+                const response = await axios.get(`https://fitsaveai.uk.r.appspot.com/api/workouts/${id}`);
                 setWorkout(response.data);
             } catch (error) {
                 console.error('Error fetching workout:', error);
