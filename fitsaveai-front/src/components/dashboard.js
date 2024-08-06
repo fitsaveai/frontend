@@ -3,7 +3,7 @@ import axios from 'axios';
 import WorkoutCard from './workoutcard';
 import './dashboard.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowUp,faArrowDownZA, faArrowUpAZ, faArrowsUpDown, faArrowDown, faPaperPlane} from '@fortawesome/free-solid-svg-icons';
+import { faArrowUp, faArrowDownZA, faArrowUpAZ, faArrowsUpDown, faArrowDown, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 
 const Dashboard = () => {
     const [workouts, setWorkouts] = useState([]);
@@ -16,7 +16,7 @@ const Dashboard = () => {
 
     const fetchWorkouts = async () => {
         try {
-            const response = await axios.get('https://fitsaveai.uk.r.appspot.com/api/workouts', {
+            const response = await axios.get('http://localhost:5000/api/workouts', {
                 headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
             });
             setWorkouts(response.data);
@@ -29,7 +29,7 @@ const Dashboard = () => {
         e.preventDefault();
         setIsLoading(true);
         try {
-            const response = await axios.post('https://fitsaveai.uk.r.appspot.com/api/ai/generate',
+            const response = await axios.post('http://localhost:5000/api/ai/generate',
                 { prompt },
                 { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }
             );
@@ -45,7 +45,7 @@ const Dashboard = () => {
 
     const deleteWorkout = async (id) => {
         try {
-            await axios.delete(`https://fitsaveai.uk.r.appspot.com/api/workouts/${id}`, {
+            await axios.delete(`http://localhost:5000/api/workouts/${id}`, {
                 headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
             });
             setWorkouts(workouts.filter(workout => workout._id !== id));

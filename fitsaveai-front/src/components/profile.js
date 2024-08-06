@@ -21,7 +21,7 @@ const ExplorePage = () => {
 
     const fetchWorkouts = async () => {
         try {
-            const response = await axios.get('https://fitsaveai.uk.r.appspot.com/api/workouts', {
+            const response = await axios.get('http://localhost:5000/api/workouts', {
                 headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
             });
             setWorkouts(response.data);
@@ -66,7 +66,7 @@ const ExplorePage = () => {
                 <div className='profile-cluster'>
                     <div className='profile-img-cluster'>
                         <h1>{name}</h1>
-                        <img src={profile} alt="hi" width='60%'/>
+                        <img src={profile} alt="hi" width='60%' />
                         <Link to="/accInfo"><button className='pfp-img'>Edit Profile</button></Link>
                     </div>
                     <div className='profile-group-cluster'>
@@ -74,13 +74,13 @@ const ExplorePage = () => {
                         <h3>Top 5 of your workouts:</h3>
                         <div className="workout-list1">
                             {workouts.map((workout) => (
-                        <WorkoutList
-                            key={workout._id}
-                            workout={workout}
-                        />
-                    ))}
+                                <WorkoutList
+                                    key={workout._id}
+                                    workout={workout}
+                                />
+                            ))}
                         </div>
-                        <Link to="/dashboard"><button className='pfp-img1'>Go To Dashboard</button></Link> 
+                        <Link to="/dashboard"><button className='pfp-img1'>Go To Dashboard</button></Link>
                     </div>
 
                 </div>

@@ -30,7 +30,7 @@ export const AuthProvider = ({ children }) => {
 
     const login = async (email, password) => {
         try {
-            const res = await axios.post('https://fitsaveai.uk.r.appspot.com/api/auth/login', { email, password });
+            const res = await axios.post('http://localhost:5000/api/auth/login', { email, password });
             localStorage.setItem('token', res.data.token);
             localStorage.setItem('email', res.data.user.email);
             localStorage.setItem('name', res.data.user.name);
@@ -47,7 +47,7 @@ export const AuthProvider = ({ children }) => {
 
     const register = async (name, email, password) => {
         try {
-            const res = await axios.post('https://fitsaveai.uk.r.appspot.com/api/auth/register', { name, email, password });
+            const res = await axios.post('http://localhost:5000/api/auth/register', { name, email, password });
             localStorage.setItem('name', res.data.user.name);
             localStorage.setItem('email', res.data.user.email);
             localStorage.setItem('token', res.data.token);
@@ -73,7 +73,7 @@ export const AuthProvider = ({ children }) => {
         const token = localStorage.getItem('token');
         if (token) {
             try {
-                const res = await axios.get('https://fitsaveai.uk.r.appspot.com/api/auth/verify', {
+                const res = await axios.get('http://localhost:5000/api/auth/verify', {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setUser(res.data.user);

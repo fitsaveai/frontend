@@ -25,7 +25,7 @@ const Oasis = () => {
     const fetchStarterWorkouts = async () => {
         try {
             console.log('Fetching starter workouts');
-            const response = await axios.get('https://fitsaveai.uk.r.appspot.com/api/workouts/starter');
+            const response = await axios.get('http://localhost:5000/api/workouts/starter');
             console.log('Starter workouts fetched:', response.data);
             setStarterWorkouts(response.data);
         } catch (error) {
@@ -36,7 +36,7 @@ const Oasis = () => {
     const fetchStarterDiets = async () => {
         try {
             console.log('Fetching starter diets');
-            const response = await axios.get('https://fitsaveai.uk.r.appspot.com/api/diets/starter');
+            const response = await axios.get('http://localhost:5000/api/diets/starter');
             console.log('Starter diets fetched:', response.data);
             setStarterDiets(response.data);
         } catch (error) {
@@ -47,7 +47,7 @@ const Oasis = () => {
     const fetchFeaturedWorkouts = async () => {
         try {
             console.log('Fetching featured workouts');
-            const response = await axios.get('https://fitsaveai.uk.r.appspot.com/api/workouts/featured');
+            const response = await axios.get('http://localhost:5000/api/workouts/featured');
             console.log('Featured workouts fetched:', response.data);
             setFeaturedWorkouts(response.data);
         } catch (error) {
@@ -58,7 +58,7 @@ const Oasis = () => {
     const fetchCommunityWorkouts = async () => {
         try {
             console.log('Fetching community workouts');
-            const response = await axios.get('https://fitsaveai.uk.r.appspot.com/api/workouts/community');
+            const response = await axios.get('http://localhost:5000/api/workouts/community');
             console.log('Community workouts fetched:', response.data);
             setCommunityWorkouts(response.data);
         } catch (error) {
@@ -69,11 +69,11 @@ const Oasis = () => {
     const handleLike = async (workoutId) => {
         try {
             console.log('Liking workout:', workoutId);
-            await axios.post(`https://fitsaveai.uk.r.appspot.com/api/workouts/${workoutId}/like`, {}, {
+            await axios.post(`http://localhost:5000/api/workouts/${workoutId}/like`, {}, {
                 headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
             });
             console.log('Workout liked successfully');
-            fetchCommunityWorkouts(); 
+            fetchCommunityWorkouts();
         } catch (error) {
             console.error('Error liking workout:', error);
         }
@@ -81,7 +81,7 @@ const Oasis = () => {
 
     const handleWorkoutUpload = () => {
         console.log('Workout uploaded successfully');
-        fetchCommunityWorkouts(); 
+        fetchCommunityWorkouts();
         setIsUploadModalOpen(false);
     };
 
